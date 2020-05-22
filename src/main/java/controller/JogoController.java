@@ -4,6 +4,7 @@ package controller;
 import br.com.caelum.vraptor.*;
 import dao.JogoDAO;
 import dao.CategoriaDAO;
+import dao.FuncionarioDAO;
 import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.Date;
@@ -27,19 +28,23 @@ public class JogoController {
     @Inject private CategoriaDAO catdao;
     @Inject
     LoginController loginController;
+    @Inject
+    private FuncionarioDAO usodao;
     
     @Path("/create")
     public void create() {
         loginController.sessao();
         result.include("list", dao.findAllUsers());
-        result.include("lista", catdao.findAllUsers());
+        result.include("categorialista", catdao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
     
      @Path("/editar")
     public void editar() {
         loginController.sessao();
         result.include("list", dao.findAllUsers());
-         result.include("lista", catdao.findAllUsers());
+         result.include("categorialista", catdao.findAllUsers());
+         result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
     
     @Path("/add")
@@ -65,6 +70,7 @@ public class JogoController {
     public void visualizar() {
         loginController.sessao();
         result.include("list", dao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
 
     public void edita(Integer id) {

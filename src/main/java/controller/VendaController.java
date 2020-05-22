@@ -44,6 +44,7 @@ public class VendaController {
         result.include("list", dao.findAllUsers());
         result.include("funcionariolista", usodao.findAllUsers());
         result.include("eventolista", evedao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
 
     @Path("/editar")
@@ -52,13 +53,14 @@ public class VendaController {
         result.include("list", dao.findAllUsers());
         result.include("eventolista", evedao.findAllUsers());
         result.include("funcionariolista", usodao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
 
     @Path("/add")
     public void add(Venda entity, Integer evento, Integer quantidade) {
         try {
             Evento eve = evedao.find(evento);
-            Funcionario uso = usodao.find(loginController.getFuncionarioLoged().getId());
+            Funcionario uso = usodao.find(loginController.valor);
             entity.setQuantidade(quantidade);
             entity.setEvento(eve);
             entity.setFuncionario(uso);
@@ -68,7 +70,7 @@ public class VendaController {
             eve.setBilhetesDisponiveis(eve.getBilhetesDisponiveis() - entity.getQuantidade());
             evedao.update(eve);
 
-            result.include("lista", dao.find(entity.getId()));
+            result.include("lista1", dao.find(entity.getId()));
             result.include("succeedMessage", "Venda efectuada com sucesso");
             result.redirectTo(VendaController.class).visualizar();
         } catch (Exception e) {
@@ -80,7 +82,8 @@ public class VendaController {
     @Path("/visualizar")
     public void visualizar() {
         loginController.sessao();
-        result.include("list", dao.findAllUsers1(loginController.getFuncionarioLoged().getId()));
+        result.include("list", dao.findAllUsers1(loginController.valor));
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
 
     @Path("/edita1")
@@ -89,7 +92,7 @@ public class VendaController {
             entity = dao.find(id);
             entity.setQuantidade(quantidade);
             dao.update(entity);
-            result.include("lista", dao.find(entity.getId()));
+            result.include("lista1", dao.find(entity.getId()));
             result.include("succeedMessage", "Venda actualizada com sucesso");
             result.redirectTo(VendaController.class).visualizar();
         } catch (Exception e) {

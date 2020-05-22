@@ -33,33 +33,37 @@ public class MensagemController {
     @Path("/create")
     public void create() {
         loginController.sessao();
-        result.include("lista", usodao.findAllUsers1(loginController.getFuncionarioLoged().getId()));
+       result.include("lista", usodao.findAllUsers1(LoginController.valor));
+       result.include("funcionariolista", usodao.findAllUsers());
 
     }
 
     @Path("/responder")
     public void responder() {
         loginController.sessao();
-        result.include("lista", usodao.findAllUsers1(loginController.getFuncionarioLoged().getId()));
+        result.include("lista", usodao.findAllUsers1(loginController.valor));
+        result.include("funcionariolista", usodao.findAllUsers());
     }
 
     @Path("/respondervenda")
     public void respondervenda() {
         loginController.sessao();
-        result.include("lista", usodao.findAllUsers1(loginController.getFuncionarioLoged().getId()));
+        result.include("lista", usodao.findAllUsers1(loginController.valor));
+        result.include("funcionariolista", usodao.findAllUsers());
 
     }
 
     @Path("/createvenda")
     public void createvenda() {
         loginController.sessao();
-        result.include("lista", usodao.findAllUsers1(loginController.getFuncionarioLoged().getId()));
+        result.include("lista", usodao.findAllUsers1(loginController.valor));
+        result.include("funcionariolista", usodao.findAllUsers());
 
     }
 
     @Path("/visualizar")
     public void visualizar() {
-        Funcionario us = usodao.find(loginController.getFuncionarioLoged().getId());
+        Funcionario us = usodao.find(loginController.valor);
          loginController.sessao();
         result.include("list", dao.findAllUsers1(us.getId()));
         result.include("lista", usodao.findAllUsers1(us.getId()));
@@ -67,7 +71,7 @@ public class MensagemController {
 
     @Path("/visualizarvenda")
     public void visualizarvenda() {
-        Funcionario us = usodao.find(loginController.getFuncionarioLoged().getId());
+        Funcionario us = usodao.find(loginController.valor);
         loginController.sessao();
         result.include("list", dao.findAllUsers1(us.getId()));
         result.include("lista", usodao.findAllUsers1(us.getId()));
@@ -77,7 +81,7 @@ public class MensagemController {
     public void add(Mensagem entity, Integer receptor, String descricao, String assunto) {
         try {
             Funcionario uso = usodao.find(receptor);
-            Funcionario uso1 = usodao.find(loginController.getFuncionarioLoged().getId());
+            Funcionario uso1 = usodao.find(loginController.valor);
             entity.setDescricao(descricao);
             entity.setAssunto(assunto);
             entity.setReceptor(uso);
@@ -97,7 +101,7 @@ public class MensagemController {
     public void addvenda(Mensagem entity, Integer receptor, String descricao, String assunto) {
         try {
             Funcionario uso = usodao.find(receptor);
-            Funcionario uso1 = usodao.find(loginController.getFuncionarioLoged().getId());
+            Funcionario uso1 = usodao.find(loginController.valor);
             entity.setDescricao(descricao);
             entity.setAssunto(assunto);
             entity.setReceptor(uso);
@@ -129,7 +133,7 @@ public class MensagemController {
     public void respostagestor(Mensagem entity, String descricao, Integer id) {
         try {
             Mensagem men = dao.find(id);
-            Funcionario uso1 = usodao.find(loginController.getFuncionarioLoged().getId());
+            Funcionario uso1 = usodao.find(loginController.valor);
             entity.setDescricao(descricao);
             entity.setAssunto(men.getAssunto());
             entity.setReceptor(men.getEmissor());
@@ -149,7 +153,7 @@ public class MensagemController {
     public void respostavenda(Mensagem entity, String descricao, Integer id) {
         try {
             Mensagem men = dao.find(id);
-            Funcionario uso1 = usodao.find(loginController.getFuncionarioLoged().getId());
+            Funcionario uso1 = usodao.find(loginController.valor);
             entity.setDescricao(descricao);
             entity.setAssunto(men.getAssunto());
             entity.setReceptor(men.getEmissor());
@@ -160,8 +164,9 @@ public class MensagemController {
             result.include("succeedMessage", "Resposta enviada com sucesso");
             result.redirectTo(MensagemController.class).createvenda();
         } catch (Exception e) {
-            result.include("error", "Resposta não enviada.");
-            result.redirectTo(MensagemController.class).createvenda();
+//            result.include("error", "Resposta não enviada.");
+
+//            result.redirectTo(MensagemController.class).createvenda();
         }
     }
 

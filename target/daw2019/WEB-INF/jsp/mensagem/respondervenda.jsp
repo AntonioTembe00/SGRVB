@@ -46,11 +46,13 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value='/inicial/inicia'/>">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value='/inicial/inicialvenda'/>">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                   <div class="sidebar-brand-text mx-3">${funcionario}<sup></sup></div>
+                   <c:forEach items="${lista}" var="uso">
+                        <div class="sidebar-brand-text mx-3">${uso.nome}<sup></sup></div>
+                    </c:forEach>
                 </a>
 
                 <!-- Divider -->
@@ -58,7 +60,7 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="<c:url value='/inicial/inicia'/>">
+                    <a class="nav-link" href="<c:url value='/inicial/inicialvenda'/>">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Painel de Controle</span></a>
                 </li>
@@ -105,21 +107,7 @@
                 <hr class="sidebar-divider">
 
                 <!-- Heading -->
-                <div class="sidebar-heading">
-                    Estatisticas
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link" href="<c:url value='/grafico/grafico'/>">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Gráficos</span></a>
-                </li>
-
-                <!-- Nav Item - Tables -->
-<!--                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Relatórios</span></a>
-                </li>-->
+               
 
                 <hr class="sidebar-divider">
                 <!-- Nav Item - Charts -->
@@ -133,8 +121,8 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Definições:</h6>
-                            <a class="collapse-item" href="forgot-password.html">Alterar Senha</a>
-                            <a class="collapse-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair da Conta</a>
+                            <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
+                            <a class="collapse-item" href="<c:url value='/login'/>" data-toggle="modal" data-target="#logoutModal">Sair da Conta</a>
                         </div>
                     </div>
                 </li>
@@ -261,22 +249,7 @@
                             </div>
 
                             <!-- Donut Chart -->
-                            <div class="col-xl-4 col-lg-5">
-                                <div class="card shadow mb-4">
-                                    <!-- Card Header - Dropdown -->
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary"></h6>
-                                    </div>
-                                    <div class="VisualizarForm">
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <!-- Card Body -->
-                                    <div class="card-body">
-
-                                    </div>
-                                </div>
-                            </div>
+                          
                         </div>
 
                     </div>

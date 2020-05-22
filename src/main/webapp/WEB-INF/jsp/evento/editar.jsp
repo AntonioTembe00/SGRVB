@@ -46,7 +46,9 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                   <div class="sidebar-brand-text mx-3">${funcionario}<sup></sup></div>
+                   <c:forEach items="${lista}" var="uso">
+                        <div class="sidebar-brand-text mx-3">${uso.nome}<sup></sup></div>
+                    </c:forEach>
                 </a>
 
                 <!-- Divider -->
@@ -144,8 +146,8 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Definições:</h6>
-                            <a class="collapse-item" href="forgot-password.html">Alterar Senha</a>
-                            <a class="collapse-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair da Conta</a>
+                            <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
+                            <a class="collapse-item" href="<c:url value='/login'/>" data-toggle="modal" data-target="#logoutModal">Sair da Conta</a>
                         </div>
                     </div>
                 </li>
@@ -254,10 +256,10 @@
                                         <form action="<c:url value='/evento/edita1'/>" class="needs-validation" novalidate>
                                             <input type="hidden" name="id" value="${entity.id }" >
                                             <div class="form-group">
-                                                <label for="sel1">Jogo</label>
+                                                <label for="sel1">Jogo:</label>
                                                 <select class="form-control" id="sel1" name="jogo">
                                                     <option value="selecione">Selecione Jogo</option>
-                                                    <c:forEach items="${filmelista}" var="jog">
+                                                    <c:forEach items="${jogolista}" var="jog">
                                                         <option value="${jog.id}">${jog.nome}</option>
                                                     </c:forEach>
                                                 </select>
