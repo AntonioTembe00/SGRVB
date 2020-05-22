@@ -28,14 +28,15 @@ public class FaltasController {
     @Path("/visualizar")
     public void visualizar() {
         loginController.sessao();
-        result.include("lista", fundao.findAllUsers());
+        result.include("lista1", fundao.findAllUsers());
         result.include("list", dao.findAllUsers());
+        result.include("lista", fundao.findAllUsers1(LoginController.valor));
     }
     @Path("/create")
     public void create() {
         loginController.sessao();
-        result.include("list", dao.findAllUsers());
-        result.include("lista", fundao.findAllUsers());
+        result.include("funcionariolista", fundao.findAllUsers());
+        result.include("lista", fundao.findAllUsers1(LoginController.valor));
     }
 
     public void add(Integer id) {

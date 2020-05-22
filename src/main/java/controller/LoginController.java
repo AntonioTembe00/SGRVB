@@ -57,18 +57,20 @@ public class LoginController {
             if (entity.getEmail().equals(email) && entity.getSenha().equals(senha) && entity.getGrupo().getNome().equals("Admin")) {
                 contador = 1;
                 valor = entity.getId();
+                
             } else if (entity.getEmail().equals(email) && entity.getSenha().equals(senha) && entity.getGrupo().getNome().equals("Vendedor")) {
                 contador = 2;
                 valor = entity.getId();
+             
             }
         }
         if (contador == 1) {
-            sessao();
+          
             result.redirectTo(InicialController.class).inicial();
 
         } else if (contador == 2) {
-            sessao();
-            result.redirectTo(InicialController.class).inicial();
+           
+            result.redirectTo(InicialController.class).inicialvenda();
 
         } else {
             result.include("error", "Senha ou email errado");

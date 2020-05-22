@@ -41,7 +41,9 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                   <div class="sidebar-brand-text mx-3">${funcionario}<sup></sup></div>
+                  <c:forEach items="${lista}" var="uso">
+                        <div class="sidebar-brand-text mx-3">${uso.nome}<sup></sup></div>
+                    </c:forEach>
                 </a>
 
                 <!-- Divider -->

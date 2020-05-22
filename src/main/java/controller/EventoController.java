@@ -4,6 +4,7 @@ import br.com.caelum.vraptor.*;
 import dao.ClienteDAO;
 import dao.JogoDAO;
 import dao.EventoDAO;
+import dao.FuncionarioDAO;
 import java.time.Instant;
 import java.util.*;
 import java.text.*;
@@ -32,6 +33,8 @@ public class EventoController {
     private EventoDAO dao;
     @Inject
     LoginController loginController;
+    @Inject
+    private FuncionarioDAO usodao;
 
     @Path("/create")
     public void create() {
@@ -39,6 +42,7 @@ public class EventoController {
         result.include("list", dao.findAllUsers());
         result.include("clientelista", clidao.findAllUsers());
         result.include("jogolista", jodao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
     
      @Path("/editar")
@@ -47,6 +51,7 @@ public class EventoController {
         result.include("list", dao.findAllUsers());
         result.include("clientelista", clidao.findAllUsers());
         result.include("jogolista", jodao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
 
     @Path("/add")
@@ -63,7 +68,7 @@ public class EventoController {
         entity.setEstadoevento("Vigor");
         entity.setEstado(1);
         dao.create(entity);
-        result.include("lista", dao.find(entity.getId()));
+        result.include("lista1", dao.find(entity.getId()));
         result.include("succeedMessage","Evento registado com sucesso");
         result.redirectTo(EventoController.class).create();
     } catch (Exception e) {
@@ -76,6 +81,7 @@ public class EventoController {
     public void visualizar() {
         loginController.sessao();
         result.include("list", dao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
 
 public void edita(Integer id) {
@@ -95,7 +101,7 @@ public void edita(Integer id) {
         entity.setDatajogo(date1);
         entity.setBilhetesDisponiveis(bilhetesDisponiveis);
         dao.update(entity);
-        result.include("lista", dao.find(entity.getId()));
+        result.include("lista1", dao.find(entity.getId()));
         result.include("succeedMessage","Evento actualizado com sucesso");
         result.redirectTo(EventoController.class).visualizar();
     } catch (Exception e) {

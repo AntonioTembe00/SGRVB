@@ -41,11 +41,13 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value='/inicial/inicia'/>">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value='/inicial/inicialvenda'/>">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                  <div class="sidebar-brand-text mx-3">${funcionario}<sup></sup></div>
+                  <c:forEach items="${lista}" var="uso">
+                        <div class="sidebar-brand-text mx-3">${uso.nome}<sup></sup></div>
+                    </c:forEach>
                 </a>
 
                 <!-- Divider -->
@@ -53,7 +55,7 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="<c:url value='/inicial/inicia'/>">
+                    <a class="nav-link" href="<c:url value='/inicial/inicialvenda'/>">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Painel de Controle</span></a>
                 </li>
@@ -128,8 +130,8 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Definições:</h6>
-                            <a class="collapse-item" href="forgot-password.html">Alterar Senha</a>
-                            <a class="collapse-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair da Conta</a>
+                            <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
+                            <a class="collapse-item" href="<c:url value='/login'/>" data-toggle="modal" data-target="#logoutModal">Sair da Conta</a>
                         </div>
                     </div>
                 </li>

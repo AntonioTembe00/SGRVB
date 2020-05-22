@@ -22,7 +22,7 @@ import model.Jogo;
  * @author
  */
 @Controller
-@Path("/usuario")
+@Path("/funcionario")
 public class FuncionarioController {
 
     @Inject
@@ -40,20 +40,25 @@ public class FuncionarioController {
 
     @Path("/create")
     public void create() {
-        loginController.sessao();
+
         result.include("list", dao.findAllUsers());
+        result.include("especialidadelista", espdao.findAllUsers());
+        result.include("grupolista", grdao.findAllUsers());
+        result.include("lista", dao.findAllUsers1(LoginController.valor));
     }
 
     @Path("/editar")
     public void editar() {
-        loginController.sessao();
         result.include("list", dao.findAllUsers());
+        result.include("especialidadelista", espdao.findAllUsers());
+        result.include("grupolista", grdao.findAllUsers());
+        result.include("lista", dao.findAllUsers1(LoginController.valor));
     }
 
     @Path("/createcliente")
     public void createcliente() {
-        loginController.sessao();
         result.include("list", dao.findAllUsers());
+        result.include("lista", dao.findAllUsers1(LoginController.valor));
     }
 
     @Path("/add")
@@ -63,24 +68,23 @@ public class FuncionarioController {
             Grupo gru = grdao.find(grupo);
             Especialidade esp = espdao.find(especialidade);
 
-                Date date1 = new SimpleDateFormat("yyyy-MM-DD").parse(datanascimento);
-                entity.setNome(nome);
-                entity.setEmail(email);
-                entity.setSenha(""+telefone);
-                entity.setGrupo(gru);
-                entity.setBI(bi);
-                entity.setEndereco(endereco);
-                entity.setSalario(salario);
-                entity.setTelefone(telefone);
-                entity.setEspecilidade(esp);
-                entity.setDataNascimento(date1);
-                entity.setData(Date.from(Instant.now()));
-                entity.setEstado(1);
-                dao.create(entity);
-                result.include("lista", dao.find(entity.getId()));
-                result.include("succeedMessage", "Funcionário registado com sucesso");
-                result.redirectTo(FuncionarioController.class).create();
-          
+            Date date1 = new SimpleDateFormat("yyyy-MM-DD").parse(datanascimento);
+            entity.setNome(nome);
+            entity.setEmail(email);
+            entity.setSenha("" + telefone);
+            entity.setGrupo(gru);
+            entity.setBI(bi);
+            entity.setEndereco(endereco);
+            entity.setSalario(salario);
+            entity.setTelefone(telefone);
+            entity.setEspecilidade(esp);
+            entity.setDataNascimento(date1);
+            entity.setData(Date.from(Instant.now()));
+            entity.setEstado(1);
+            dao.create(entity);
+            result.include("lista1", dao.find(entity.getId()));
+            result.include("succeedMessage", "Funcionário registado com sucesso");
+            result.redirectTo(FuncionarioController.class).create();
 
         } catch (Exception e) {
             result.include("error", "Funcionário não registado.");
@@ -92,11 +96,14 @@ public class FuncionarioController {
     public void visualizar() {
         loginController.sessao();
         result.include("list", dao.findAllUsers());
+        result.include("lista", dao.findAllUsers1(LoginController.valor));
     }
+
     @Path("/actualizarsenha")
     public void actualizarsenha() {
         loginController.sessao();
         result.include("list", dao.findAllUsers());
+        result.include("lista", dao.findAllUsers1(LoginController.valor));
     }
 
     public void edita(Integer id) {
@@ -117,7 +124,7 @@ public class FuncionarioController {
             Date date1 = new SimpleDateFormat("yyyy-MM-DD").parse(datanascimento);
             entity.setNome(nome);
             entity.setEmail(email);
-            entity.setSenha(""+telefone);
+            entity.setSenha("" + telefone);
             entity.setGrupo(gru);
             entity.setBI(bi);
             entity.setEndereco(endereco);
@@ -125,7 +132,7 @@ public class FuncionarioController {
             entity.setTelefone(telefone);
             entity.setEspecilidade(esp);
             entity.setDataNascimento(date1);
-          
+
             dao.update(entity);
             result.include("succeedMessage", "Funcionário actualizado com sucesso");
             result.redirectTo(FuncionarioController.class).visualizar();
@@ -134,33 +141,35 @@ public class FuncionarioController {
             result.redirectTo(FuncionarioController.class).create();
         }
     }
+
     @Path("/trocar")
-    public void trocar(Funcionario entity, String senhanova, String confirmarsenha,String senhaantiga){
-        try {
-            
-        Funcionario adm = dao.find(LoginController.valor);
-         if (adm.getSenha().equals(senhaantiga)) {
-             if (senhaantiga.equals(senhanova)) {
-                result.include("error", "A senha nova é igual a senha antiga. Por favor, introduza uma nova senha.");
-                result.redirectTo(FuncionarioController.class).actualizarsenha();
+    public void trocar(Funcionario entity, String senhanova, String confirmarsenha, String senhaantiga) {
+      
+            Funcionario adm = dao.find(LoginController.valor);
+            if (adm.getSenha().equals(senhaantiga)) {
+                if (senhaantiga.equals(senhanova)) {
+                    result.include("error", "A senha nova é igual a senha antiga. Por favor, introduza uma nova senha.");
+                    result.redirectTo(FuncionarioController.class).actualizarsenha();
 
-            } else if (senhanova.equals(confirmarsenha)) {
+                } else if (senhanova.equals(confirmarsenha)) {
 
-               dao.update(entity);
-                result.include("succeedMessage", "Senha actualizada com sucesso");
-                result.redirectTo(FuncionarioController.class).actualizarsenha();
+                    dao.update(entity);
+                    if (adm.getGrupo().getNome().equals("Admin")) {
+                        result.include("succeedMessage", "Senha actualizada com sucesso");
+                        result.redirectTo(FuncionarioController.class).visualizar();
+                    } else if (adm.getGrupo().getNome().equals("Admin")) {
+                        result.include("succeedMessage", "Senha actualizada com sucesso");
+                        result.redirectTo(InicialController.class).inicialvenda();
+                    }
+                } else {
+                    result.include("error", "Não foi possivel actualizar, senha diferente de confirmar senha.");
+                    result.redirectTo(FuncionarioController.class).actualizarsenha();
+                }
             } else {
-                result.include("error", "Não foi possivel actualizar, senha diferente de confirmar senha.");
+                result.include("error", "Não foi possivel actualizar. A senha introduzida não corresponde a senha antiga.");
                 result.redirectTo(FuncionarioController.class).actualizarsenha();
             }
-        } else {
-            result.include("error", "Não foi possivel actualizar. A senha introduzida não corresponde a senha antiga.");
-            result.redirectTo(FuncionarioController.class).actualizarsenha();
-        }
-        } catch (Exception e) {
-            result.include("error", "Senha não actualizada.");
-            result.redirectTo(FuncionarioController.class).actualizarsenha();
-        }
+       
     }
 
     public void remove(Integer id) {

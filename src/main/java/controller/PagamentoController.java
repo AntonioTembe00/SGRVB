@@ -1,6 +1,7 @@
 package controller;
 
 import br.com.caelum.vraptor.*;
+import dao.FuncionarioDAO;
 import dao.TipopagamentoDAO;
 import dao.ReservaDAO;
 import dao.PagamentoDAO;
@@ -30,13 +31,15 @@ public class PagamentoController {
     private PagamentoDAO dao;
     @Inject
     LoginController loginController;
-
+@Inject
+    private FuncionarioDAO usodao;
     @Path("/create")
     public void create() {
         loginController.sessao();
         result.include("list", dao.findAllUsers());
         result.include("tipolista", tipdao.findAllUsers());
         result.include("reslista", redao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
 
     @Path("/add")
@@ -52,7 +55,7 @@ public class PagamentoController {
             dao.create(entity);
             res.setEstado(0);
             redao.update(res);
-            result.include("lista", dao.find(entity.getId()));
+            result.include("lista1", dao.find(entity.getId()));
             result.include("succeedMessage", "Pagamento efectuado com sucesso");
             result.redirectTo(PagamentoController.class).create();
         } catch (Exception e) {
@@ -65,6 +68,7 @@ public class PagamentoController {
     public void visualizar() {
         loginController.sessao();
         result.include("list", dao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
 
     public void cancel(Integer id) {
