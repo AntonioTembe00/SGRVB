@@ -1,17 +1,22 @@
 package controller;
 
 import br.com.caelum.vraptor.*;
+import dao.EventoDAO;
 import dao.FuncionarioDAO;
 import dao.TipopagamentoDAO;
 import dao.ReservaDAO;
+import dao.VendaDAO;
 import dao.PagamentoDAO;
 import java.time.Instant;
 import java.util.Date;
 import model.Tipopagamento;
 import model.Pagamento;
 import model.Reserva;
+import model.Venda;
 import javax.inject.Inject;
 import model.Especialidade;
+import model.Evento;
+import model.Funcionario;
 
 /**
  *
@@ -31,8 +36,13 @@ public class PagamentoController {
     private PagamentoDAO dao;
     @Inject
     LoginController loginController;
-@Inject
+    @Inject
     private FuncionarioDAO usodao;
+    @Inject
+    private VendaDAO vdao;
+    @Inject
+    private EventoDAO evedao;
+
     @Path("/create")
     public void create() {
         loginController.sessao();
@@ -40,28 +50,6 @@ public class PagamentoController {
         result.include("tipolista", tipdao.findAllUsers());
         result.include("reslista", redao.findAllUsers());
         result.include("lista", usodao.findAllUsers1(LoginController.valor));
-    }
-
-    @Path("/add")
-    public void add(Pagamento entity, Integer reserva, Integer tipopagamento) {
-        try {
-            Reserva res = redao.find(reserva);
-            Tipopagamento tipo = tipdao.find(tipopagamento);
-            entity.setReserva(res);
-            entity.setTipopagamento(tipo);
-            entity.setData(Date.from(Instant.now()));
-            entity.setEstado(1);
-            entity.setEstadopagamento("Pago");
-            dao.create(entity);
-            res.setEstado(0);
-            redao.update(res);
-            result.include("lista1", dao.find(entity.getId()));
-            result.include("succeedMessage", "Pagamento efectuado com sucesso");
-            result.redirectTo(PagamentoController.class).create();
-        } catch (Exception e) {
-            result.include("error", "Pagamento não registado.");
-            result.redirectTo(PagamentoController.class).create();
-        }
     }
 
     @Path("/visualizar")
@@ -72,29 +60,57 @@ public class PagamentoController {
     }
 
     public void cancel(Integer id) {
-        Pagamento adm = dao.find(id);
-        adm.setEstadopagamento("Cancel");
-        adm.setEstado(0);
-        dao.update(adm);
-        Reserva re = redao.find(adm.getReserva().getId());
-        re.setEstadoReserva("Cancelado");
-        re.setEstado(0);
-        redao.update(re);
-        result.include("succeedMessage", "Pagamento cancelado com sucesso");
-        result.redirectTo(PagamentoController.class).visualizar();
+        try {
+            Pagamento adm = dao.find(id);
+            adm.setEstadopagamento("Cancel");
+            adm.setEstado(0);
+            dao.update(adm);
+
+            Reserva re = redao.find(adm.getReserva().getId());
+            re.setEstadoReserva("Cancelado");
+            re.setEstado(0);
+            redao.update(re);
+
+            Evento eve = evedao.find(adm.getReserva().getEvento().getId());
+            eve.setBilhetesDisponiveis(eve.getBilhetesDisponiveis() + adm.getReserva().getQuantidade());
+            evedao.update(eve);
+
+            result.include("succeedMessage", "Pagamento cancelado com sucesso");
+            result.redirectTo(PagamentoController.class).visualizar();
+        } catch (Exception e) {
+            result.include("succeedMessage", "Pagamento não cancelado");
+            result.redirectTo(PagamentoController.class).visualizar();
+        }
     }
 
     public void pagamento(Integer id) {
-        Pagamento adm = dao.find(id);
-        adm.setEstadopagamento("Pago");
-        adm.setEstado(0);
-        adm.setData(Date.from(Instant.now()));
-        dao.update(adm);
-        Reserva re = redao.find(adm.getReserva().getId());
-        re.setEstado(0);
-        redao.update(re);
-        result.include("succeedMessage", "Pagamento efectuado com sucesso");
-        result.redirectTo(PagamentoController.class).visualizar();
+        try {
+
+            Pagamento adm = dao.find(id);
+            adm.setEstadopagamento("Pago");
+            adm.setEstado(0);
+            adm.setData(Date.from(Instant.now()));
+            dao.update(adm);
+
+            Reserva re = redao.find(adm.getReserva().getId());
+            re.setEstado(0);
+            redao.update(re);
+
+            Funcionario fu = usodao.find(LoginController.valor);
+            Venda venda = new Venda();
+            venda.setQuantidade(adm.getReserva().getQuantidade());
+            venda.setFuncionario(fu);
+            venda.setEvento(adm.getReserva().getEvento());
+            venda.setData(Date.from(Instant.now()));
+            venda.setEstado(1);
+            vdao.create(venda);
+
+            result.include("succeedMessage", "Pagamento efectuado com sucesso");
+            result.redirectTo(PagamentoController.class).visualizar();
+        } catch (Exception e) {
+            result.include("succeedMessage", "Pagamento não efectuado");
+            result.redirectTo(PagamentoController.class).visualizar();
+        }
     }
 
 }

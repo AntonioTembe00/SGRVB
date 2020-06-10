@@ -34,7 +34,7 @@
 
     <body id="page-top">
 
-       <!-- Page Wrapper -->
+        <!-- Page Wrapper -->
         <div id="wrapper">
 
             <!-- Sidebar -->
@@ -45,9 +45,9 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                   <c:forEach items="${lista}" var="uso">
+                    <c:forEach items="${lista}" var="uso">
                         <div class="sidebar-brand-text mx-3">${uso.nome}<sup></sup></div>
-                    </c:forEach>
+                            </c:forEach>
                 </a>
 
                 <!-- Divider -->
@@ -86,6 +86,7 @@
                             <a class="collapse-item" href="<c:url value='/evento/create'/>">Evento do Jogo</a>
                             <a class="collapse-item" href="<c:url value='/tipopagamento/create'/>">Tipo de Pagamento</a>
                             <a class="collapse-item" href="<c:url value='/faltas/create'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/ferias/create'/>">Férias</a>
                         </div>
                     </div>
                 </li>
@@ -99,7 +100,7 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Visualizar:</h6>
-                              <a class="collapse-item" href="<c:url value='/grupo/visualizar'/>">Grupo</a>
+                            <a class="collapse-item" href="<c:url value='/grupo/visualizar'/>">Grupo</a>
                             <a class="collapse-item" href="<c:url value='/especialidade/visualizar'/>">Especialidade</a>
                             <a class="collapse-item" href="<c:url value='/funcionario/visualizar'/>">Funcionario</a>
                             <a class="collapse-item" href="<c:url value='/categoria/visualizar'/>" >Categorias de Jogo</a>
@@ -107,8 +108,9 @@
                             <a class="collapse-item" href="<c:url value='/jogo/visualizar'/>">Jogo</a>
                             <a class="collapse-item" href="<c:url value='/evento/visualizar'/>">Evento do Jogo</a>
                             <a class="collapse-item" href="<c:url value='/tipopagamento/visualizar'/>">Tipo de Pagamento</a>
-                            <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
-                       <a class="collapse-item" href="<c:url value='/faltas/visualizar'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/faltas/visualizar'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/ferias/visualizar'/>">Férias</a>
+                            <a class="collapse-item" href="<c:url value='/venda/visualizaradmin'/>" >Vendas</a>
                         </div>
                     </div>
                 </li>
@@ -127,11 +129,11 @@
                 </li>
 
                 <!-- Nav Item - Tables -->
-<!--                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Relatórios</span></a>
-                </li>-->
+                <!--                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="fas fa-fw fa-table"></i>
+                                        <span>Relatórios</span></a>
+                                </li>-->
 
                 <hr class="sidebar-divider">
                 <!-- Nav Item - Charts -->
@@ -196,7 +198,7 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrbc Tpcazt</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrvb Tpcazt</span>
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -229,29 +231,29 @@
                         <br><br>  
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
-                             <c:if test="${succeedMessage != null }">
-                                        <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                            ${succeedMessage}
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${error != null }">
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                            ${error}
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    </c:if>
+                            <c:if test="${succeedMessage != null }">
+                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                    ${succeedMessage}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </c:if>
+                            <c:if test="${error != null }">
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    ${error}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </c:if>
                             <div class="card-header py-3">
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
-                                          <tr>
+                                            <tr>
                                                 <th>Nome</th>
                                                 <th>Email</th>
                                                 <th>Telefone</th>
@@ -274,10 +276,10 @@
                                                     <td>${entity.telefone}</td>
                                                     <td>${entity.salario}</td>
                                                     <td>
-                                                        <a style="margin-left: 23%" href="add?id=${entity.id}" class="btn btn-warning btn-circle btn-sm" data-toggle="tooltip" data-placement="left" title="actuaizar">
+                                                        <a style="margin-left: 23%" href="add?id=${entity.id}" class="btn btn-warning btn-circle btn-sm" data-toggle="tooltip" data-placement="left" title="atribuir">
                                                             <i class="fas fa-exclamation-triangle"></i>
                                                         </a>
-                                                       
+
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -315,7 +317,7 @@
         </a>
 
         <!-- Logout Modal-->
-      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">

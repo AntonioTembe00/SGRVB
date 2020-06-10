@@ -30,7 +30,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="<c:url value='/inicial/inicialcliente'/>">SGRBC</a>
+                <a class="navbar-brand js-scroll-trigger" href="<c:url value='/inicial/inicialcliente'/>">SGRVB</a>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -73,18 +73,18 @@
                     </button>
                 </div>
             </c:if>
-            <form action="<c:url value='/usuario/add'/>">
+            <form action="<c:url value='/cliente/add'/>">
                 <div class="form-group">
                     <label for="usr"><b>Nome:</b></label>
-                    <input type="text" class="form-control" id="" name="nome">
+                    <input type="text" class="form-control" id="nome" name="nome">
                 </div>
                 <div class="form-group">
                     <label for="usr"><b>Email:</b></label>
-                    <input type="email" class="form-control" id="" name="email">
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="form-group">
                     <label for="usr"><b>Telefone:</b></label>
-                    <input type="number" class="form-control" id="" name="telefone">
+                    <input type="number" class="form-control" id="telefone" name="telefone">
                 </div>
                 <div class="form-group">
                     <label for="pwd"><b>Senha:</b></label>
@@ -135,7 +135,7 @@
                 <div class="col-lg-4" id="contacto">
                     <h4 class="text-uppercase mb-4">Contacto</h4>
                     <p class="lead mb-0">841278345</p>
-                    <p class="lead mb-1">sgrbc@gmail.com</p>
+                    <p class="lead mb-1">sgrvb@gmail.com</p>
                 </div>
 
             </div>

@@ -92,31 +92,15 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Visualizar:</h6>
-                            <a class="collapse-item" href="<c:url value='/venda/visualizar'/>" >Vender</a>
+                            <a class="collapse-item" href="<c:url value='/venda/visualizar'/>" >Vendas</a>
                             <a class="collapse-item"  href="<c:url value='/mensagem/visualizarvenda'/>">Mensagem</a>
+                             <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
                         </div>
                     </div>
                 </li>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Estatisticas
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link" href="<c:url value='/grafico/grafico'/>">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Gráficos</span></a>
-                </li>
-
-                <!-- Nav Item - Tables -->
-<!--                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Relatórios</span></a>
-                </li>-->
 
                 <hr class="sidebar-divider">
                 <!-- Nav Item - Charts -->
@@ -181,7 +165,7 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrbc Tpcazt</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrvb Tpcazt</span>
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->

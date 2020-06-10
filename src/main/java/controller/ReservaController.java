@@ -39,13 +39,14 @@ public class ReservaController {
     private TipopagamentoDAO tpdao;
     @Inject
     LoginController loginController;
+    
 
     @Path("/create")
     public void create() {
-        loginController.sessao();
         result.include("list", dao.findAllUsers());
-        result.include("usuariolista", usodao.findAllUsers());
+        result.include("tipopagamentolista", tpdao.findAllUsers());
         result.include("eventolista", evedao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
 
     @Path("/editar")
@@ -56,10 +57,10 @@ public class ReservaController {
 
     @Path("/add")
     public void add(Reserva entity, Integer evento, Integer cliente,
-            Integer quantidade) {
+            Integer quantidade, Integer tipopagamento) {
         try {
             Evento eve = evedao.find(evento);
-            Cliente uso = usodao.find(cliente);
+            Cliente uso = usodao.find(LoginController.valor);
             entity.setQuantidade(quantidade);
             entity.setEvento(eve);
             entity.setCliente(uso);
@@ -72,7 +73,7 @@ public class ReservaController {
 
             Pagamento pg = new Pagamento();
             entity = dao.find(entity.getId());
-            Tipopagamento tipo = tpdao.find(3);
+            Tipopagamento tipo = tpdao.find(tipopagamento);
             pg.setReserva(entity);
             pg.setTipopagamento(tipo);
             pg.setData(Date.from(Instant.now()));
@@ -80,7 +81,6 @@ public class ReservaController {
             pg.setEstadopagamento("Pedente");
             pdao.create(pg);
 
-//        result.include("lista", dao.find(entity.getId()));
             result.redirectTo(InicialController.class).paginacliente();
         } catch (Exception e) {
             result.include("error", "Reserva não efectuada.");

@@ -99,8 +99,9 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Visualizar:</h6>
-                            <a class="collapse-item" href="<c:url value='/venda/visualizar'/>" >Vender</a>
+                            <a class="collapse-item" href="<c:url value='/venda/visualizar'/>" >Vendas</a>
                             <a class="collapse-item"  href="<c:url value='/mensagem/visualizarvenda'/>">Mensagem</a>
+                             <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
                         </div>
                     </div>
                 </li>
@@ -174,7 +175,7 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrbc Tpcazt</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrvb Tpcazt</span>
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -229,7 +230,7 @@
                                         </div>
                                     </c:if>
                                     <div class="card-header py-3">
-                                         <input type="hidden" name="id" value="${entity.id }" ><form action="<c:url value='/filme/add'/>" class="needs-validation" novalidate>                                           
+                                        <form action="<c:url value='/venda/add'/>" class="needs-validation" novalidate>                                           
                                             
                                             <div class="form-group">
                                                 <label for="sel1">Evento:</label>
@@ -256,45 +257,7 @@
                                 </div>
                             </div>
 
-                            <!-- Donut Chart -->
-                            <div class="col-xl-4 col-lg-5">
-                                <div class="card shadow mb-4">
-                                    <!-- Card Header - Dropdown -->
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Verifique os seus dados</h6>
-                                    </div>
-                                    <div class="VisualizarForm">
-                                        <table>
-                                            <tbody>
-
-                                            <th>Nome:</th>
-                                            <td>${lista1.nome}</td>
-                                            </tr>
-                                            <tr>
-                                            <th>Categoria:</th>
-                                            <td>${lista1.categoria}</td>
-                                            </tr>
-                                         
-                                            <tr>
-                                            <th>Descricao:</th>
-                                            <td>${lista1.descricao}</td>
-                                            </tr>
-
-                                            </tbody>
-                                        </table> 
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <div class="container">
-                                        <button type="submit" class="btn btn-info"><a href="edita?id=${lista1.id}">Editar</a></button>
-                                        
-                                    </div> 
-                                    <!-- Card Body -->
-                                    <div class="card-body">
-
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
 
                     </div>

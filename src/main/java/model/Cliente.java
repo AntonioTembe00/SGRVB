@@ -27,8 +27,7 @@ public class Cliente implements Serializable{
     @Column (length=60, nullable=false, unique = true)  private String email;
     @Column (length=60, nullable=false) private String senha;
     @Column (length=60, nullable=false, unique = true) private Integer telefone;
-   
-    @Column (length=60, nullable=false) private String confirmarsenha;  
+  
     private Integer estado;
     @Temporal(TemporalType.TIMESTAMP)
     private Date data;
@@ -77,13 +76,6 @@ public class Cliente implements Serializable{
         this.estado = estado;
     }
 
-    public String getConfirmarsenha() {
-        return confirmarsenha;
-    }
-
-    public void setConfirmarsenha(String confirmarsenha) {
-        this.confirmarsenha = confirmarsenha;
-    }
 
     public Date getData() {
         return data;

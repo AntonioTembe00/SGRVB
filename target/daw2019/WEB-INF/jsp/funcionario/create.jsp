@@ -45,9 +45,9 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                     <c:forEach items="${lista}" var="uso">
+                    <c:forEach items="${lista}" var="uso">
                         <div class="sidebar-brand-text mx-3">${uso.nome}<sup></sup></div>
-                    </c:forEach>
+                            </c:forEach>
                 </a>
 
                 <!-- Divider -->
@@ -85,7 +85,8 @@
                             <a class="collapse-item" href="<c:url value='/jogo/create'/>">Jogo</a>
                             <a class="collapse-item" href="<c:url value='/evento/create'/>">Evento do Jogo</a>
                             <a class="collapse-item" href="<c:url value='/tipopagamento/create'/>">Tipo de Pagamento</a>
-                            <a class="collapse-item" href="<c:url value='/faltas/create'/>">faltas</a>
+                            <a class="collapse-item" href="<c:url value='/faltas/create'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/ferias/create'/>">Férias</a>
                         </div>
                     </div>
                 </li>
@@ -107,8 +108,9 @@
                             <a class="collapse-item" href="<c:url value='/jogo/visualizar'/>">Jogo</a>
                             <a class="collapse-item" href="<c:url value='/evento/visualizar'/>">Evento do Jogo</a>
                             <a class="collapse-item" href="<c:url value='/tipopagamento/visualizar'/>">Tipo de Pagamento</a>
-                            <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
-                       <a class="collapse-item" href="<c:url value='/faltas/visualizar'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/faltas/visualizar'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/ferias/visualizar'/>">Férias</a>
+                            <a class="collapse-item" href="<c:url value='/venda/visualizaradmin'/>" >Vendas</a>
                         </div>
                     </div>
                 </li>
@@ -145,7 +147,7 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Definições:</h6>
-                             <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
+                            <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
                             <a class="collapse-item" href="<c:url value='/login'/>" data-toggle="modal" data-target="#logoutModal">Sair da Conta</a>
                         </div>
                     </div>
@@ -196,7 +198,7 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrbc Tpcazt</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrvb Tpcazt</span>
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -234,7 +236,7 @@
 
                                 <!-- Area Chart -->
                                 <div class="card shadow mb-4">
-                                     <c:if test="${succeedMessage != null }">
+                                    <c:if test="${succeedMessage != null }">
                                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                                             ${succeedMessage}
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -261,30 +263,30 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="email"><b>Email:</b></label>
-                                                <input type="text" class="form-control"  name="email" value="${entity.email }"placeholder="Introduza seu email" name="email" required>
+                                                <input type="email" class="form-control"  name="email" value="${entity.email }"placeholder="Introduza seu email" name="email" required>
                                                 <!-- <div class="valid-feedback">Valido.</div> -->
                                                 <div class="invalid-feedback">Obrigatório preencher.</div>
-                                                
+
                                             </div>
-                                                <div class="form-group">
-                                                    <label for="sel1">Grupo:</label>
-                                                    <select class="form-control" id="sel1" name="grupo">
-                                                        <option value="selecione">Selecione Grupo</option>
-                                                        <c:forEach items="${grupolista}" var="gru">
-                                                            <option value="${gru.id}">${gru.nome}</option>
-                                                        </c:forEach>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="sel1">Especialidade:</label>
-                                                    <select class="form-control" id="sel1" name="jogo">
-                                                        <option value="selecione">Selecione Especialidade</option>
-                                                        <c:forEach items="${especialidadelista}" var="esp">
-                                                            <option value="${esp.id}">${esp.nome}</option>
-                                                        </c:forEach>
-                                                    </select>
-                                                </div>
-                                            
+                                            <div class="form-group">
+                                                <label for="sel1">Grupo:</label>
+                                                <select class="form-control" id="sel1" name="grupo">
+                                                    <option value="selecione">Selecione Grupo</option>
+                                                    <c:forEach items="${grupolista}" var="gru">
+                                                        <option value="${gru.id}">${gru.nome}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sel1">Especialidade:</label>
+                                                <select class="form-control" id="sel1" name="especialidade">
+                                                    <option value="selecione">Selecione Especialidade</option>
+                                                    <c:forEach items="${especialidadelista}" var="esp">
+                                                        <option value="${esp.id}">${esp.nome}</option>
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
+
                                             <div class="form-group">
                                                 <label for="da"><b>Data Nascimento</b></label>
                                                 <input type="date" class="form-control"  name="datanascimento" required>
@@ -313,7 +315,7 @@
                                                 <label for="comment"><b>Endereço:</b></label>
                                                 <textarea class="form-control" rows="4" id="comment" name="endereco" value="${entity.endereco}" placeholder="Introduza o endereço do funcionário"></textarea>
                                             </div>
-                                          
+
                                             <button type="submit" class="btn btn btn-success">Gravar</button>
 
                                         </form>
@@ -333,16 +335,16 @@
                                         <tbody>
 
                                         <th>Nome:</th>
-                                        <td>${lista1.nome}</td>
+                                        <td>${lista2.nome}</td>
                                         </tr>
                                         <th>Email:</th>
-                                        <td>${lista1.email}</td>
+                                        <td>${lista2.email}</td>
                                         </tr>
                                         <th>BI:</th>
-                                        <td>${lista1.BI}</td>
+                                        <td>${lista2.BI}</td>
                                         </tr>
                                         <th>Telefone:</th>
-                                        <td>${lista1.telefone}</td>
+                                        <td>${lista2.telefone}</td>
                                         </tr>
 
                                         </tbody>
@@ -350,7 +352,7 @@
                                     <br>
                                     <br>
                                     <div class="container">
-                                        <button type="submit" class="btn btn-info"><a href="edita?id=${lista1.id}">Editar</a></button>    
+                                        <button type="submit" class="btn btn-info"><a href="edita?id=${lista2.id}">Editar</a></button>    
                                     </div>  
                                     <!-- Card Body -->
                                     <div class="card-body">

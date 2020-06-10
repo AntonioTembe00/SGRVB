@@ -35,7 +35,9 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="<c:url value='/inicial/paginacliente'/>">SGRBV</a>
+                <c:forEach items="${lista}" var="uso">
+                    <a class="navbar-brand js-scroll-trigger" href="<c:url value='/inicial/paginacliente'/>">${uso.nome}</a>
+                </c:forEach>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -79,14 +81,7 @@
             </c:if>
             <!-- Portfolio Grid Items -->
             <form action="<c:url value='/reserva/add'/>">
-                <div class="form-group">
-                    <label for="usr"><b>Cliente:</b></label>
-                    <select class="form-control" id="sel1" name="cliente">
-                        <c:forEach items="${clientelista}" var="us">
-                            <option value="${us.id}">${us.nome}</option>
-                        </c:forEach>
-                    </select>
-                </div>
+
                 <div class="form-group">
                     <label for="usr"><b>Evento</b></label>
                     <select class="form-control" id="sel1" name="evento">
@@ -104,6 +99,14 @@
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="usr"><b>Tipo Pagamento:</b></label>
+                    <select class="form-control" id="sel1" name="tipopagamento">
+                        <c:forEach items="${tipopagamentolista}" var="us">
+                            <option value="${us.id}">${us.nome}</option>
+                        </c:forEach>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Reservar</button>

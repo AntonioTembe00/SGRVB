@@ -21,7 +21,7 @@
 
         <title>sgrbv-Tela de Administrador-RegistarGrupo</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-         <link href="${pageContext.request.contextPath}/resources/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/resources/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/sb-admin-2.min.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/estilo.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/sb-admin-2.css" />
@@ -34,7 +34,7 @@
     <body id="page-top">
 
         <!-- Page Wrapper -->
-       <!-- Page Wrapper -->
+        <!-- Page Wrapper -->
         <div id="wrapper">
 
             <!-- Sidebar -->
@@ -45,9 +45,9 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                  <c:forEach items="${lista}" var="uso">
+                    <c:forEach items="${lista}" var="uso">
                         <div class="sidebar-brand-text mx-3">${uso.nome}<sup></sup></div>
-                    </c:forEach>
+                            </c:forEach>
                 </a>
 
                 <!-- Divider -->
@@ -86,6 +86,7 @@
                             <a class="collapse-item" href="<c:url value='/evento/create'/>">Evento do Jogo</a>
                             <a class="collapse-item" href="<c:url value='/tipopagamento/create'/>">Tipo de Pagamento</a>
                             <a class="collapse-item" href="<c:url value='/faltas/create'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/ferias/create'/>">Férias</a>
                         </div>
                     </div>
                 </li>
@@ -99,7 +100,7 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Visualizar:</h6>
-                              <a class="collapse-item" href="<c:url value='/grupo/visualizar'/>">Grupo</a>
+                            <a class="collapse-item" href="<c:url value='/grupo/visualizar'/>">Grupo</a>
                             <a class="collapse-item" href="<c:url value='/especialidade/visualizar'/>">Especialidade</a>
                             <a class="collapse-item" href="<c:url value='/funcionario/visualizar'/>">Funcionario</a>
                             <a class="collapse-item" href="<c:url value='/categoria/visualizar'/>" >Categorias de Jogo</a>
@@ -107,8 +108,9 @@
                             <a class="collapse-item" href="<c:url value='/jogo/visualizar'/>">Jogo</a>
                             <a class="collapse-item" href="<c:url value='/evento/visualizar'/>">Evento do Jogo</a>
                             <a class="collapse-item" href="<c:url value='/tipopagamento/visualizar'/>">Tipo de Pagamento</a>
-                            <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
-                        <a class="collapse-item" href="<c:url value='/faltas/visualizar'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/faltas/visualizar'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/ferias/visualizar'/>">Férias</a>
+                            <a class="collapse-item" href="<c:url value='/venda/visualizaradmin'/>" >Vendas</a>
                         </div>
                     </div>
                 </li>
@@ -127,11 +129,11 @@
                 </li>
 
                 <!-- Nav Item - Tables -->
-<!--                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Relatórios</span></a>
-                </li>-->
+                <!--                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <i class="fas fa-fw fa-table"></i>
+                                        <span>Relatórios</span></a>
+                                </li>-->
 
                 <hr class="sidebar-divider">
                 <!-- Nav Item - Charts -->
@@ -145,7 +147,7 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Definições:</h6>
-                           <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
+                            <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
                             <a class="collapse-item" href="<c:url value='/login'/>" data-toggle="modal" data-target="#logoutModal">Sair da Conta</a>
                         </div>
                     </div>
@@ -196,7 +198,7 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrbc Tpcazt</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrvb Tpcazt</span>
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -234,7 +236,7 @@
 
                                 <!-- Area Chart -->
                                 <div class="card shadow mb-4">
-                                     <c:if test="${succeedMessage != null }">
+                                    <c:if test="${succeedMessage != null }">
                                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                                             ${succeedMessage}
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -264,7 +266,7 @@
                                                 <textarea class="form-control" rows="5" id="comment" name="descricao" placeholder="Introduza a Descrição da Categoria"></textarea>
                                             </div>
                                             <button type="submit" class="btn btn btn-success">Gravar</button>
-                                            
+
                                         </form>
                                     </div>  
                                 </div>
@@ -280,14 +282,14 @@
                                     <div class="VisualizarForm">
                                         <table>
                                             <tbody>
-                                                   
-                                                    <th>Nome:</th>
-                                                    <td>${lista1.nome}</td>
-                                                </tr>
-                                                    <th>Descricao:</th>
-                                                    <td>${lista1.descricao}</td>
-                                                </tr>
-                                                
+
+                                            <th>Nome:</th>
+                                            <td>${lista1.nome}</td>
+                                            </tr>
+                                            <th>Descricao:</th>
+                                            <td>${lista1.descricao}</td>
+                                            </tr>
+
                                             </tbody>
                                         </table> 
                                     </div>
@@ -332,7 +334,7 @@
         </a>
 
         <!-- Logout Modal-->
-             <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
