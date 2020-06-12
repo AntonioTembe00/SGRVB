@@ -21,20 +21,19 @@ public class FaltasController {
     private Result result;
     @Inject
     private FaltasDAO dao;
+    @Inject
     private FuncionarioDAO fundao;
     @Inject
     LoginController loginController;
 
     @Path("/visualizar")
     public void visualizar() {
-        loginController.sessao();
         result.include("lista1", fundao.findAllUsers());
         result.include("list", dao.findAllUsers());
         result.include("lista", fundao.findAllUsers1(LoginController.valor));
     }
     @Path("/create")
     public void create() {
-        loginController.sessao();
         result.include("funcionariolista", fundao.findAllUsers());
         result.include("lista", fundao.findAllUsers1(LoginController.valor));
     }

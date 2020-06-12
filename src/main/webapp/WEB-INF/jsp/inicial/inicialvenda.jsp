@@ -12,25 +12,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-  <title>sgrbv-Tela Vendedor</title>
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
- <link href="${pageContext.request.contextPath}/resources/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <title>sgrbv-Tela Vendedor</title>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/sb-admin-2.min.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/estilo.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/sb-admin-2.css" />
-</head>
+    </head>
 
-<body id="page-top">
+    <body id="page-top">
 
-<!-- Page Wrapper -->
+        <!-- Page Wrapper -->
         <div id="wrapper">
 
             <!-- Sidebar -->
@@ -41,9 +41,9 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                  <c:forEach items="${lista}" var="uso">
+                    <c:forEach items="${lista}" var="uso">
                         <div class="sidebar-brand-text mx-3">${uso.nome}<sup></sup></div>
-                    </c:forEach>
+                            </c:forEach>
                 </a>
 
                 <!-- Divider -->
@@ -55,6 +55,7 @@
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Painel de Controle</span></a>
                 </li>
+
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
@@ -88,8 +89,9 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Visualizar:</h6>
-                            <a class="collapse-item" href="<c:url value='/venda/visualizar'/>" >Vender</a>
+                            <a class="collapse-item" href="<c:url value='/venda/visualizar'/>" >Vendas</a>
                             <a class="collapse-item"  href="<c:url value='/mensagem/visualizarvenda'/>">Mensagem</a>
+                            <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
                         </div>
                     </div>
                 </li>
@@ -97,7 +99,7 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
-              
+
 
                 <hr class="sidebar-divider">
                 <!-- Nav Item - Charts -->
@@ -111,7 +113,7 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Definições:</h6>
-                             <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
+                            <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
                             <a class="collapse-item" href="<c:url value='/login'/>" data-toggle="modal" data-target="#logoutModal">Sair da Conta</a>
                         </div>
                     </div>
@@ -162,8 +164,10 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrbc Tpcazt</span>
-                                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                    <c:forEach items="${lista}" var="uso">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 medium">${uso.nome}</span>
+                                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/user_avatar.png" alt="">
+                                    </c:forEach>
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -185,88 +189,91 @@
                         </ul>
 
                     </nav>
-        <!-- End of Topbar -->
+                    <!-- End of Topbar -->
+                    <div class="myimage">
+                        <img  src="${pageContext.request.contextPath}/resources/assets/img/fut1.jpg" alt="">
+                    </div>
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <!--<h1 class="h3 mb-0 text-gray-800">Painel de Controle</h1>-->
+                            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+                        </div>
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Painel de Controle</h1>
-            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-          </div>
 
-          <!-- Content Row -->
-          <div class="row">
+                        <!-- Content Row -->
+                        <div class="row">
 
-                 	<img src="${pageContext.request.contextPath}/resources/assets/img/logo1.PNG" alt="">
-                <!-- Card Body -->
-                <div class="myimage">
-                    <img src="${pageContext.request.contextPath}/resources/assets/img/logo1.PNG" alt="">
+                            <img src="${pageContext.request.contextPath}/resources/assets/img/logo1.PNG" alt="">
+                            <!-- Card Body -->
+                            <div class="myimage">
+                                <img src="${pageContext.request.contextPath}/resources/assets/img/logo1.PNG" alt="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>       
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; SGRVB 2020</span>
-          </div>
+            </div>       
         </div>
-      </footer>
-      <!-- End of Footer -->
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; SGRVB 2020</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
-  </a>
+</a>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Deseja mesmo Sair?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">Ã</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Deseja mesmo Sair?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">Ã</span>
+                </button>
+            </div>
+            <div class="modal-body">Selecione "Sair" se realmente deseja fechar esta sessão.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-primary" href="<c:url value='/login'/>">Sair</a>
+            </div>
         </div>
-        <div class="modal-body">Selecione "Sair" se realmente deseja fechar esta sessão.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="<c:url value='/login'/>">Sair</a>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery/jquery.min.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="${pageContext.request.contextPath}/resources/assets/js/sb-admin-2.min.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="${pageContext.request.contextPath}/resources/assets/js/sb-admin-2.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="${pageContext.request.contextPath}/resources/assets/vendor/chart.js/Chart.min.js"></script>
+<!-- Page level plugins -->
+<script src="${pageContext.request.contextPath}/resources/assets/vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="${pageContext.request.contextPath}/resources/assets/js/demo/chart-area-demo.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/assets/js/demo/chart-pie-demo.js"></script>
+<!-- Page level custom scripts -->
+<script src="${pageContext.request.contextPath}/resources/assets/js/demo/chart-area-demo.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

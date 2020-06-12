@@ -52,7 +52,7 @@ public class FaltasDAO {
     
     public List<Faltas> findAllUsers() {
         try {
-            List<Faltas> lista = manager.createQuery("from Faltas e where e.estado=1 order by e.id").getResultList();
+            List<Faltas> lista = manager.createQuery("from Faltas e where e.estadofalta=1 order by e.id").getResultList();
             return lista;
         } catch (Exception e) {
             throw e;

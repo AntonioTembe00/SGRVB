@@ -41,7 +41,7 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value='/inicial/inicial'/>">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value='/inicial/inicia'/>">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
@@ -55,7 +55,7 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="<c:url value='/inicial/inicial'/>">
+                    <a class="nav-link" href="<c:url value='/inicial/inicia'/>">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Painel de Controle</span></a>
                 </li>
@@ -86,6 +86,7 @@
                             <a class="collapse-item" href="<c:url value='/evento/create'/>">Evento do Jogo</a>
                             <a class="collapse-item" href="<c:url value='/tipopagamento/create'/>">Tipo de Pagamento</a>
                             <a class="collapse-item" href="<c:url value='/faltas/create'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/ferias/create'/>">Férias</a>
                         </div>
                     </div>
                 </li>
@@ -107,8 +108,9 @@
                             <a class="collapse-item" href="<c:url value='/jogo/visualizar'/>">Jogo</a>
                             <a class="collapse-item" href="<c:url value='/evento/visualizar'/>">Evento do Jogo</a>
                             <a class="collapse-item" href="<c:url value='/tipopagamento/visualizar'/>">Tipo de Pagamento</a>
-                            <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
                             <a class="collapse-item" href="<c:url value='/faltas/visualizar'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/ferias/visualizar'/>">Férias</a>
+                            <a class="collapse-item" href="<c:url value='/venda/visualizaradmin'/>" >Vendas</a>
                         </div>
                     </div>
                 </li>
@@ -196,8 +198,10 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrbc Tpcazt</span>
-                                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                    <c:forEach items="${lista}" var="uso">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 medium">${uso.nome}</span>
+                                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/user_avatar.png" alt="">
+                                    </c:forEach>
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -225,7 +229,7 @@
                     <div class="container-fluid">
 
                         <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Visualização de Filmes</h1>
+                        <h1 class="h3 mb-2 text-gray-800">Visualização de Jogos</h1>
                         <br><br>  
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">

@@ -16,7 +16,6 @@ public abstract class Cliente_ {
 	public static volatile SingularAttribute<Cliente, String> nome;
 	public static volatile SingularAttribute<Cliente, Integer> id;
 	public static volatile SingularAttribute<Cliente, String> email;
-	public static volatile SingularAttribute<Cliente, String> confirmarsenha;
 
 	public static final String SENHA = "senha";
 	public static final String TELEFONE = "telefone";
@@ -25,7 +24,6 @@ public abstract class Cliente_ {
 	public static final String NOME = "nome";
 	public static final String ID = "id";
 	public static final String EMAIL = "email";
-	public static final String CONFIRMARSENHA = "confirmarsenha";
 
 }
 

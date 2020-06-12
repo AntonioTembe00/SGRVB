@@ -35,7 +35,10 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="<c:url value='/inicial/paginacliente'/>">SGRBV</a>
+                <c:forEach items="${lista}" var="uso">
+                    <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/user_avatar.png" alt="">
+                    <a class="navbar-brand js-scroll-trigger" href="<c:url value='/inicial/paginacliente'/>">${uso.nome}</a>
+                </c:forEach>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -44,6 +47,9 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contacto">Contactos</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="color:#00b386" href="<c:url value='/inicial/paginacliente'/>">Voltar</a>
                         </li>
                     </ul>
                 </div>
@@ -79,20 +85,13 @@
             </c:if>
             <!-- Portfolio Grid Items -->
             <form action="<c:url value='/reserva/add'/>">
-                <div class="form-group">
-                    <label for="usr"><b>Cliente:</b></label>
-                    <select class="form-control" id="sel1" name="cliente">
-                        <c:forEach items="${clientelista}" var="us">
-                            <option value="${us.id}">${us.nome}</option>
-                        </c:forEach>
-                    </select>
-                </div>
+
                 <div class="form-group">
                     <label for="usr"><b>Evento</b></label>
                     <select class="form-control" id="sel1" name="evento">
-                        <c:forEach items="${eventolista}" var="ev">
-                            <option value="${ev.id}">${ev.jogo}</option>
-                        </c:forEach>
+                        <%--<c:forEach items="${eventolista}" var="ev">--%>
+                        <option value="${eventolista.id}">${eventolista.jogo}</option>
+                        <%--</c:forEach>--%>
                     </select>
                 </div>
 
@@ -104,6 +103,14 @@
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="usr"><b>Tipo Pagamento:</b></label>
+                    <select class="form-control" id="sel1" name="tipopagamento">
+                        <c:forEach items="${tipopagamentolista}" var="us">
+                            <option value="${us.id}">${us.nome}</option>
+                        </c:forEach>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Reservar</button>
@@ -129,17 +136,21 @@
                 <!-- Footer Social Icons -->
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Encontre-nos nas redes sociais</h4>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/SGRVB-107177634040594/ad_center/?refSource=pages_manager_bar">
                         <i class="fab fa-fw fa-facebook-f"></i>
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/fab.jpg" alt="">
                     </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://api.whatsapp.com/send?phone=841278345&text=SGRVB">
                         <i class="fab fa-fw fa-twitter"></i>
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/wat.png" alt="">
                     </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/SGRVB">
                         <i class="fab fa-fw fa-linkedin-in"></i>
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/ins.jpg" alt="">
                     </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/SGRVB">
                         <i class="fab fa-fw fa-dribbble"></i>
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/tiw.png" alt="">
                     </a>
                 </div>
 
