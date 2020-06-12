@@ -92,10 +92,7 @@ public class LoginController {
         }
 
         if (contador != 0) {
-            sessao();
-//            result.redirectTo(InicialController.class).paginacliente();
-            result.redirectTo(ReservaController.class).create();
-
+            result.redirectTo(InicialController.class).paginacliente();
         } else {
             result.include("error", "Senha ou email errado");
             result.redirectTo(LoginController.class).logincliente();

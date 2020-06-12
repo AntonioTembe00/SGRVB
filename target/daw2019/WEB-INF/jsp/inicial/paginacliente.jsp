@@ -31,6 +31,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
                 <c:forEach items="${lista}" var="uso">
+                    <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/user_avatar.png" alt="">
+
                     <a class="navbar-brand js-scroll-trigger" href="#page-top">${uso.nome}</a>
                 </c:forEach>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,6 +52,9 @@
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contacto">Contactos</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="color:#00b386" href="<c:url value='/inicial/inicialcliente'/>">Sair</a>
                         </li>
                     </ul>
 
@@ -73,7 +78,7 @@
 
             </div>
         </header>
-        
+
 
         <!-- Portfolio Section -->
         <section class="page-section portfolio" id="portfolio">
@@ -94,7 +99,7 @@
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme2.jpg" alt="">
+                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/mb.jpg" alt="">
 
                         </div>
                     </div>
@@ -107,7 +112,7 @@
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme1.jpg" alt="">
+                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/BR.png" alt="">
                         </div>
                     </div>
 
@@ -119,7 +124,7 @@
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme3.jpg" alt="">
+                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/bp.jpg" alt="">
                         </div>
                     </div>
 
@@ -131,7 +136,7 @@
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme4.jpg" alt="">
+                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/ji.jpg" alt="">
                         </div>
                     </div>
 
@@ -143,7 +148,7 @@
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme6.jpg" alt="">
+                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/lm.jpg" alt="">
                         </div>
                     </div>
 
@@ -155,7 +160,7 @@
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme5.jpg" alt="">
+                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/bd.jpg" alt="">
                         </div>
                     </div>
 
@@ -176,10 +181,10 @@
                 <!-- About Section Content -->
                 <div class="row">
                     <div class="col-lg-4 ml-auto">
-                        <p class="lead">Somos um cinema que tem como seu principal objectivo proporcionar diversão aos clientes.</p>
+                        <p class="lead">Somos uma plataforma que tem como seu principal objectivo proporcionar a venda de diversos bilhetes para jogos aos clientes.</p>
                     </div>
                     <div class="col-lg-4 mr-auto">
-                        <p class="lead">Apresentar filmes de qualidade e em bom horarios torna a nossa empresa uma das melhores.</p>
+                        <p class="lead">Vendemos os bilhetes a um preço muito reduzido, isso torna a nossa empresa uma das melhores.</p>
                     </div>
                 </div>
             </div>
@@ -201,18 +206,21 @@
                     <!-- Footer Social Icons -->
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Encontre-nos nas redes sociais</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/SGRBC-107177634040594/ad_center/?refSource=pages_manager_bar">
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/SGRVB-107177634040594/ad_center/?refSource=pages_manager_bar">
                             <i class="fab fa-fw fa-facebook-f"></i>
-                            
+                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/fab.jpg" alt="">
                         </a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#">
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://api.whatsapp.com/send?phone=841278345&text=SGRVB">
                             <i class="fab fa-fw fa-twitter"></i>
+                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/wat.png" alt="">
                         </a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#">
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/SGRVB">
                             <i class="fab fa-fw fa-linkedin-in"></i>
+                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/ins.jpg" alt="">
                         </a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#">
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/SGRVB">
                             <i class="fab fa-fw fa-dribbble"></i>
+                            <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/tiw.png" alt="">
                         </a>
                     </div>
 
@@ -220,7 +228,7 @@
                     <div class="col-lg-4" id="contacto">
                         <h4 class="text-uppercase mb-4">Contacto</h4>
                         <p class="lead mb-0">841278345</p>
-                        <p class="lead mb-1">sgrbc@gmail.com</p>
+                        <p class="lead mb-1">sgrvb@gmail.com</p>
                     </div>
 
                 </div>
@@ -255,9 +263,10 @@
                     <div class="modal-body text-center">
                         <div class="container">
                             <div class="row justify-content-center">
+
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title -->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">JOKER</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">AC MILAN Vs BENFICA</h2>
                                     <!-- Icon Divider -->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -266,20 +275,16 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image -->
-                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme2.jpg" alt="">
+                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/mb.jpg" alt="">
                                     <br>
-                                    <b>DATA: 4-12-2019</b> <br>
-                                    <b>HORA: 17H30</b> <br> <br>
+                                    <b>DATA: ${ev1.datajogo}</b> <br>
+                                    <b>VALOR: ${ev1.valor}</b> <br>
+                                    <b>BILHETES DISPONÍVEIS: ${ev1.bilhetesDisponiveis}</b> <br> <br>
 
-                                    <!-- Portfolio Modal - Text -->
-                                    <p class="mb-5"> <b>DESCRIÇÃO:</b> Titulo original : Joker
-                                        Lançamento: 3 de outubro de 2019 Cinema
-                                        Gênero: Crime, Drama, Thriller
-                                        Qualidade: 2D
-                                        Idioma: Português
-                                        Duração: 2h 2min.
-                                    </p>
-                                    <p><b>SINOPSE:</b> O comediante falido Arthur Fleck encontra violentos bandidos pelas ruas de Gotham City. Desconsiderado pela sociedade, Fleck começa a ficar louco e se transforma no criminoso conhecido como Coringa.</p>
+                                    <a href="<c:url value='../reserva/find?id=${ev1.id}'/>" class="btn btn-secondary">
+                                        Reservar
+                                    </a>
+
                                     <button class="btn btn-primary" href="#" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Fechar
@@ -306,7 +311,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title -->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">REI LEÃO</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">FC Barcelona Vs Real Madrid</h2>
                                     <!-- Icon Divider -->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -314,23 +319,16 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image -->
-                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme1.jpg" alt="">
+                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/BR.png" alt="">
                                     <br>
-                                    <b>DATA: 20-11-2019</b> <br>
-                                    <b>HORA: 17H30</b> <br> <br>
+                                    <b>DATA: ${ev2.datajogo}</b> <br>
+                                    <b>VALOR: ${ev2.valor}</b> <br>
+                                    <b>BILHETES DISPONÍVEIS: ${ev2.bilhetesDisponiveis}</b> <br> <br>
 
-                                    <!-- Portfolio Modal - Text -->
-                                    <p class="mb-5"> <b>DESCRIÇÃO:</b> Título Traduzido: O Rei Leão
-                                        Título Original: The Lion King
-                                        IMDb: 6,3/10
-                                        Gênero: Animação, Aventura, Drama
-                                        Lançamento: 2019
-                                        Qualidade: 3D
-                                        Áudio: Inglês
-                                        Legenda: Português
-                                        Duração: 1h 58 Min.
-                                    </p>
-                                    <p><b>SINOPSE:</b> Simba idolatra seu pai, Rei Mufasa, e leva a sério seu futuro real. Mas nem todos do reino celebram sua chegada. Scar, o irmão de Mufasa e anterior herdeiro do trono, tem seus próprios planos. A batalha pela Pedra do Reino será repleta de traições, tragédia e drama, resultando no exilo de Simba. Com ajuda de uma curiosa dupla de novos amigos, Simba deverá descobrir como crescer e tomar o que é seu por direito.</p>
+                                    <a href="<c:url value='../reserva/find?id=${ev2.id}'/>" class="btn btn-secondary">
+                                        Reservar
+                                    </a>
+
                                     <button class="btn btn-primary" href="#" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Fechar
@@ -357,7 +355,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title -->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">IRMÃOS URSO</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">S. L. Benfica Vs FC Porto</h2>
                                     <!-- Icon Divider -->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -365,24 +363,17 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image -->
-                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme3.jpg" alt="">
+                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/bp.jpg" alt="">
                                     <br>
-                                    <b>DATA: 19-11-2019</b> <br>
-                                    <b>HORA: 14H30</b> <br> <br>
+                                    <b>DATA: ${ev3.datajogo}</b> <br>
+                                    <b>VALOR: ${ev3.valor}</b> <br>
+                                    <b>BILHETES DISPONÍVEIS: ${ev3.bilhetesDisponiveis}</b> <br> <br>
 
-                                    <!-- Portfolio Modal - Text -->
-                                    <p class="mb-5"> <b>DESCRIÇÃO:</b> Irmãos Urso – A Viagem de Volta Para Casa
-                                        Título Original: Boonie Bears: Homeward Journey
-                                        Lançamento no Brasil: 2015
-                                        Gênero: Animação, Aventura, Comédia
-                                        INFORMAÇÕES DO ARQUIVO
-                                        Formato: Mkv
-                                        Qualidade: 3D
-                                        Idioma: Português
-                                        Legenda: Português
-                                        Duração: 1h 08Min.
-                                    </p>
-                                    <p><b>SINOPSE:</b> Simba idolatra seu pai, Rei Mufasa, e leva a sério seu futuro real. Mas nem todos do reino celebram sua chegada. Scar, o irmão de Mufasa e anterior herdeiro do trono, tem seus próprios planos. A batalha pela Pedra do Reino será repleta de traições, tragédia e drama, resultando no exilo de Simba. Com ajuda de uma curiosa dupla de novos amigos, Simba deverá descobrir como crescer e tomar o que é seu por direito.</p>
+
+                                    <a href="<c:url value='../reserva/find?id=${ev3.id}'/>" class="btn btn-secondary">
+                                        Reservar
+                                    </a>
+
                                     <button class="btn btn-primary" href="#" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Fechar
@@ -396,7 +387,7 @@
         </div>
 
         <!-- Portfolio Modal 4 -->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -409,7 +400,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title -->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">TRAPACEIRAS</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">JUVENTUS Vs Inter de Milão</h2>
                                     <!-- Icon Divider -->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -417,21 +408,16 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image -->
-                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme4.jpg" alt="">
+                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/ji.jpg" alt="">
                                     <br>
-                                    <b>DATA: 14-11-2019</b> <br>
-                                    <b>HORA: 17H30</b> <br> <br>
+                                    <b>DATA: ${ev4.datajogo}</b> <br>
+                                    <b>VALOR: ${ev4.valor}</b> <br>
+                                    <b>BILHETES DISPONÍVEIS: ${ev4.bilhetesDisponiveis}</b> <br> <br>
 
-                                    <!-- Portfolio Modal - Text -->
-                                    <p class="mb-5"> <b>DESCRIÇÃO:</b> Titulo Original: The Hustle
-                                        Ano de Lançamento: 2019
-                                        Gênero: Comédia, Crime
-                                        Qualidade: 3D
-                                        Idioma: Português, Inglês
-                                        Legenda: Português
-                                        Duração: 1h 33 Min.
-                                    </p>
-                                    <p><b>SINOPSE:</b> Duas vigaristas, uma de baixo nível e outra de alto nível, competem para conseguir extorquir a fortuna de um ingênuo prodígio da tecnologia.</p>
+                                    <a href="<c:url value='../reserva/find?id=${ev4.id}'/>" class="btn btn-secondary">
+                                        Reservar
+                                    </a>
+
                                     <button class="btn btn-primary" href="#" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Fechar
@@ -458,7 +444,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title -->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">REI LEÃO</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Liverpool Vs Man. United</h2>
                                     <!-- Icon Divider -->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -466,23 +452,16 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image -->
-                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme6.jpg" alt="">
+                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/lm.jpg" alt="">
                                     <br>
-                                    <b>DATA: 20-11-2019</b> <br>
-                                    <b>HORA: 17H30</b> <br> <br>
+                                    <b>DATA: ${ev5.datajogo}</b> <br>
+                                    <b>VALOR: ${ev5.valor}</b> <br>
+                                    <b>BILHETES DISPONÍVEIS: ${ev5.bilhetesDisponiveis}</b> <br> <br>
 
-                                    <!-- Portfolio Modal - Text -->
-                                    <p class="mb-5"> <b>DESCRIÇÃO:</b> Título Traduzido: O Rei Leão
-                                        Título Original: The Lion King
-                                        IMDb: 6,3/10
-                                        Gênero: Animação, Aventura, Drama
-                                        Lançamento: 2019
-                                        Qualidade: 3D
-                                        Áudio: Inglês
-                                        Legenda: Português
-                                        Duração: 1h 58 Min.
-                                    </p>
-                                    <p><b>SINOPSE:</b> Simba idolatra seu pai, Rei Mufasa, e leva a sério seu futuro real. Mas nem todos do reino celebram sua chegada. Scar, o irmão de Mufasa e anterior herdeiro do trono, tem seus próprios planos. A batalha pela Pedra do Reino será repleta de traições, tragédia e drama, resultando no exilo de Simba. Com ajuda de uma curiosa dupla de novos amigos, Simba deverá descobrir como crescer e tomar o que é seu por direito.</p>
+                                    <a href="<c:url value='../reserva/find?id=${ev5.id}'/>" class="btn btn-secondary">
+                                        Reservar
+                                    </a>
+
                                     <button class="btn btn-primary" href="#" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Fechar
@@ -509,7 +488,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title -->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">WATCHMEN</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Borussia Dortmund Vs Bayern Muchen</h2>
                                     <!-- Icon Divider -->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -517,21 +496,16 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image -->
-                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme5.jpg" alt="">
+                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/bd.jpg" alt="">
                                     <br>
-                                    <b>DATA: 02-11-2019</b> <br>
-                                    <b>HORA: 19H30</b> <br> <br>
+                                    <b>DATA: ${ev6.datajogo}</b> <br>
+                                    <b>VALOR: ${ev6.valor}</b> <br>
+                                    <b>BILHETES DISPONÍVEIS: ${ev6.bilhetesDisponiveis}</b> <br> <br>
 
-                                    <!-- Portfolio Modal - Text -->
-                                    <p class="mb-5"> <b>DESCRIÇÃO:</b> Título Original: Watchmen
-                                        Ano de Lançamento: 2019
-                                        Gênero: Ação | Drama | Mistério
-                                        Qualidade: 2D
-                                        Áudio: Inglês, Português
-                                        Legenda: Português
-                                        Duração: 60 Minutos.
-                                    </p>
-                                    <p><b>SINOPSE:</b> Numa realidade alternativa dos Estados Unidos, vigilantes mascarados se tornam fora-da-lei por conta de seus métodos violentos. Apesar disso, alguns deles se reúnem para iniciar uma revolução enquanto outros tentam pará-la antes que seja tarde demais. Mas o maior questionamento que surge é: quem observa os Watchmen?.</p>
+                                    <a href="<c:url value='../reserva/find?id=${ev6.id}'/>" class="btn btn-secondary">
+                                        Reservar
+                                    </a>
+
                                     <button class="btn btn-primary" href="#" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Fechar
@@ -551,64 +525,29 @@
                             <i class="fas fa-times"></i>
                         </span>
                     </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title -->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                                    <!-- Icon Divider -->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon">
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image -->
-                                    <img class="img-fluid rounded mb-5" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/filme6.jpg" alt="">
-                                    <br>
-                                    <b>DATA: 28-10-2019</b> <br>
-                                    <b>HORA: 17H30</b> <br> <br>
 
-                                    <!-- Portfolio Modal - Text -->
-                                    <p class="mb-5"> <b>DESCRIÇÃO:</b> Título Traduzido: O Rei Leão
-                                        Título Original: The Lion King
-                                        IMDb: 6,3/10
-                                        Gênero: Animação, Aventura, Drama
-                                        Lançamento: 2019
-                                        Qualidade: 3D
-                                        Áudio: Inglês
-                                        Legenda: Português
-                                        Duração: 1h 58 Min.
-                                    </p>
-                                    <p><b>SINOPSE:</b> Simba idolatra seu pai, Rei Mufasa, e leva a sério seu futuro real. Mas nem todos do reino celebram sua chegada. Scar, o irmão de Mufasa e anterior herdeiro do trono, tem seus próprios planos. A batalha pela Pedra do Reino será repleta de traições, tragédia e drama, resultando no exilo de Simba. Com ajuda de uma curiosa dupla de novos amigos, Simba deverá descobrir como crescer e tomar o que é seu por direito.</p>
-                                    <button class="btn btn-primary" href="#" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Fechar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+</div>
+</div>
 
-        <!-- Bootstrap core JavaScript -->
-        <script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery/jquery.min.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Plugin JavaScript -->
-        <script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Contact Form JavaScript -->
-        <script src="${pageContext.request.contextPath}/resources/assets/js/jqBootstrapValidation.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/assets/js/contact_me.js"></script>
+<!-- Contact Form JavaScript -->
+<script src="${pageContext.request.contextPath}/resources/assets/js/jqBootstrapValidation.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/contact_me.js"></script>
 
-        <!-- Custom scripts for this template -->
-        <script src="${pageContext.request.contextPath}/resources/assets/js/freelancer.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="${pageContext.request.contextPath}/resources/assets/js/freelancer.min.js"></script>
 
-    </body>
+</body>
 
 </html>

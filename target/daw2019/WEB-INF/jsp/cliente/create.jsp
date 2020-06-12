@@ -40,6 +40,9 @@
                         <li class="nav-item mx-0 mx-lg-1">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contacto">Contactos</a>
                         </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="color:#00b386" href="<c:url value='/inicial/inicialcliente'/>">Voltar</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -117,17 +120,21 @@
                 <!-- Footer Social Icons -->
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Encontre-nos nas redes sociais</h4>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/SGRVB-107177634040594/ad_center/?refSource=pages_manager_bar">
                         <i class="fab fa-fw fa-facebook-f"></i>
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/fab.jpg" alt="">
                     </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://api.whatsapp.com/send?phone=841278345&text=SGRVB">
                         <i class="fab fa-fw fa-twitter"></i>
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/wat.png" alt="">
                     </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/SGRVB">
                         <i class="fab fa-fw fa-linkedin-in"></i>
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/ins.jpg" alt="">
                     </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/SGRVB">
                         <i class="fab fa-fw fa-dribbble"></i>
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/tiw.png" alt="">
                     </a>
                 </div>
 

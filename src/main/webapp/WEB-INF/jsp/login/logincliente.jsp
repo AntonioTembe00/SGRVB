@@ -77,6 +77,9 @@
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary">Entrar</button>
+                                            <a href="<c:url value='/inicial/inicialcliente'/>" class="btn btn-secondary">
+                                                Voltar
+                                            </a>
                                             <hr>
                                         </form>
                                         <hr>

@@ -52,9 +52,9 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                   <c:forEach items="${lista}" var="uso">
+                    <c:forEach items="${lista}" var="uso">
                         <div class="sidebar-brand-text mx-3">${uso.nome}<sup></sup></div>
-                    </c:forEach>
+                            </c:forEach>
                 </a>
 
                 <!-- Divider -->
@@ -101,7 +101,7 @@
                             <h6 class="collapse-header">Visualizar:</h6>
                             <a class="collapse-item" href="<c:url value='/venda/visualizar'/>" >Vendas</a>
                             <a class="collapse-item"  href="<c:url value='/mensagem/visualizarvenda'/>">Mensagem</a>
-                             <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
+                            <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
                         </div>
                     </div>
                 </li>
@@ -110,7 +110,7 @@
                 <hr class="sidebar-divider">
 
                 <!-- Heading -->
-           
+
 
                 <hr class="sidebar-divider">
                 <!-- Nav Item - Charts -->
@@ -124,7 +124,7 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Definições:</h6>
-                           <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
+                            <a class="collapse-item" href="<c:url value='/funcionario/actualizarsenha'/>">Alterar Senha</a>
                             <a class="collapse-item" href="<c:url value='/login'/>" data-toggle="modal" data-target="#logoutModal">Sair da Conta</a>
                         </div>
                     </div>
@@ -175,8 +175,10 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrvb Tpcazt</span>
-                                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                    <c:forEach items="${lista}" var="uso">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 medium">${uso.nome}</span>
+                                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/user_avatar.png" alt="">
+                                    </c:forEach>
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -213,7 +215,7 @@
 
                                 <!-- Area Chart -->
                                 <div class="card shadow mb-4">
-                                     <c:if test="${succeedMessage != null }">
+                                    <c:if test="${succeedMessage != null }">
                                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                                             ${succeedMessage}
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -231,7 +233,7 @@
                                     </c:if>
                                     <div class="card-header py-3">
                                         <form action="<c:url value='/venda/add'/>" class="needs-validation" novalidate>                                           
-                                            
+
                                             <div class="form-group">
                                                 <label for="sel1">Evento:</label>
                                                 <select class="form-control" id="sel1" name="evento">
@@ -242,8 +244,8 @@
                                                 </select>
 
                                             </div>  
-                                            
-                                           <div class="form-group">                                 
+
+                                            <div class="form-group">                                 
                                                 <label for="uname"><b>Quantidade:</b></label>
                                                 <input type="number" class="form-control" name="quantidade" placeholder="Introduza a quantidade" required>
                                                 <!-- <div class="valid-feedback">Valido.</div> -->
@@ -251,13 +253,13 @@
                                             </div>
 
                                             <button type="submit" class="btn btn btn-success">Gravar</button>
-                                            
+
                                         </form>
                                     </div>  
                                 </div>
                             </div>
 
-                           
+
                         </div>
 
                     </div>

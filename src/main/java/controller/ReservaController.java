@@ -39,13 +39,13 @@ public class ReservaController {
     private TipopagamentoDAO tpdao;
     @Inject
     LoginController loginController;
-    
+    public static Integer evento;
 
     @Path("/create")
     public void create() {
         result.include("list", dao.findAllUsers());
         result.include("tipopagamentolista", tpdao.findAllUsers());
-        result.include("eventolista", evedao.findAllUsers());
+        result.include("eventolista", evedao.find(ReservaController.evento));
         result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
 
@@ -125,9 +125,14 @@ public class ReservaController {
     }
 
     public void find(Integer id) {
-        Reserva adm = dao.find(id);
-        dao.find(id);
-        result.redirectTo(ReservaController.class).create();
+
+        if (id != null) {
+            evento = id;
+            result.redirectTo(ReservaController.class).create();
+        } else {
+            result.include("error", "Reserva não é possivel reservar.");
+            result.redirectTo(InicialController.class).paginacliente();
+        }
     }
 
 }
