@@ -273,11 +273,11 @@
                                                     <td>${entity.nome}</td>
                                                     <td>${entity.descricao}</td>
                                                     <td>
-                                                        <a style="margin-left: 23%" href="edita?id=${entity.id}" class="btn btn-warning btn-circle btn-sm" data-toggle="tooltip" data-placement="left" title="actuaizar">
-                                                            <i class="fas fa-exclamation-triangle"></i>
+                                                        <a style="margin-left: 23%" href="edita?id=${entity.id}" class="btn-circle" data-toggle="tooltip" data-placement="left" title="actuaizar">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/ed.png" alt="">
                                                         </a>
-                                                        <a style="margin-left: 20%" href="remove?id=${entity.id}" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" title="apagar" data-placement="top">
-                                                            <i class="fas fa-trash"></i>
+                                                        <a style="margin-left: 20%" href="remove?id=${entity.id}" class="btn-circle" data-toggle="tooltip" title="apagar" data-placement="top">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/ex.png" alt="">
                                                         </a>
                                                     </td>
                                                 </tr>
