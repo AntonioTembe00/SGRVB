@@ -280,8 +280,8 @@
 
 
                                                     <td>
-                                                        <a style="margin-left: 23%" href="justificar?id=${entity.id}" class="btn btn-warning btn-circle btn-sm" data-toggle="tooltip" data-placement="left" title="justificar">
-                                                            <i class="fas fa-exclamation-triangle"></i>
+                                                        <a style="margin-left: 23%" href="justificar?id=${entity.id}" class="btn-circle" data-toggle="tooltip" data-placement="left" title="justificar">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/ex.png" alt="">
                                                         </a>
 
                                                     </td>

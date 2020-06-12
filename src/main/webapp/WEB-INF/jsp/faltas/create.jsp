@@ -276,10 +276,10 @@
                                                     <td>${entity.nome}</td>
                                                     <td>${entity.email}</td>
                                                     <td>${entity.telefone}</td>
-                                                    <td>${entity.salario}</td>
+                                                    
                                                     <td>
-                                                        <a style="margin-left: 23%" href="add?id=${entity.id}" class="btn btn-warning btn-circle btn-sm" data-toggle="tooltip" data-placement="left" title="atribuir">
-                                                            <i class="fas fa-exclamation-triangle"></i>
+                                                        <a style="margin-left: 23%" href="add?id=${entity.id}" class="btn-circle" data-toggle="tooltip" data-placement="left" title="atribuir">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/re.png" alt="">
                                                         </a>
 
                                                     </td>

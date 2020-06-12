@@ -250,12 +250,12 @@
                                                     <td>${entity.estadopagamento}</td>
 
                                                     <td>
-                                                        <a style="margin-left: 23%" href="pagamento?id=${entity.id}" class="btn btn-warning btn-circle btn-sm" data-toggle="tooltip" data-placement="left" title="Confirmar">
-                                                            <i class="fas fa-exclamation-triangle"></i>
+                                                        <a style="margin-left: 23%" href="pagamento?id=${entity.id}" class="btn-circle" data-toggle="tooltip" data-placement="left" title="Confirmar">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/co.png" alt="">
                                                         </a>
-                                                        <a style="margin-left: 20%" href="cancel?id=${entity.id}" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" title="Cancelar" data-placement="top">
-                                                            <i class="fas fa-trash"></i>
-                                                        </a>
+<!--                                                        <a style="margin-left: 20%" href="cancel?id=${entity.id}" class="btn-circle" data-toggle="tooltip" title="Cancelar" data-placement="top">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/.png" alt="">
+                                                        </a>-->
                                                     </td>
                                                 </tr>
                                             </c:forEach>

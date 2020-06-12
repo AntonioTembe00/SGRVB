@@ -250,8 +250,8 @@
                                                     <td>${entity.data}</td>
 
                                                     <td> 
-                                                        <a style="margin-left: 23%" href="editavenda?id=${entity.id}" class="btn btn-warning btn-circle btn-sm" data-toggle="tooltip" data-placement="left" title="Responder Mensagem">
-                                                            <i class="fas fa-exclamation-triangle"></i>
+                                                        <a style="margin-left: 23%" href="editavenda?id=${entity.id}" class="btn-circle" data-toggle="tooltip" data-placement="left" title="Responder Mensagem">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/co.png" alt="">
                                                         </a>
 
                                                     </td>
