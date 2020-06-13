@@ -88,7 +88,7 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrbc Tpcazt</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrvb Tpcazt</span>
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -163,7 +163,11 @@
                                                 <div class="invalid-feedback">Obrigatório preencher.</div>
                                             </div>
                                             
-                                            <button type="submit" class="btn btn btn-success">Gravar</button>
+                                            <button type="submit" class="btn btn btn-success">Actualizar</button>
+                                            <button type="button" class="btn btn-primary">
+                                                <a style="color: white;"  href="<c:url value='/inicial/inicialtodos'/>">Voltar</a>
+                                        </button>
+                                            
                                             
                                         </form>
                                     </div>  

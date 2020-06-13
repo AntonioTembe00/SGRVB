@@ -36,16 +36,20 @@ public class ClienteController {
     }
 
     @Path("/add")
-    public void add(Cliente entity) {
+    public void add(Cliente entity, String senha, String confirmarsenha, String nome, String email, Integer telefone) {
         try {
 
-            if (entity.getSenha().equals(entity.getConfirmarsenha())) {
+            if (senha.equals(confirmarsenha)) {
+                entity.setNome(nome);
+                entity.setEmail(email);
+                entity.setTelefone(telefone);
+                entity.setSenha(senha);
                 entity.setData(Date.from(Instant.now()));
                 entity.setEstado(1);
                 
                 dao.create(entity);
                 result.include("succeedMessage", "Cliente registado com sucesso");
-                result.redirectTo(ClienteController.class).create();
+                result.redirectTo(LoginController.class).logincliente();
             } else {
                 result.include("error", "Cliente não registado. Senha diferente de confirmar senha.");
                 result.redirectTo(ClienteController.class).create();
@@ -77,7 +81,6 @@ public class ClienteController {
         entity.setNome(nome);
         entity.setEmail(email);
         entity.setSenha(senha);
-        entity.setConfirmarsenha(confirmarsenha);
         entity.setTelefone(telefone);
         if (senha.equals(confirmarsenha)) {
             dao.update(entity);

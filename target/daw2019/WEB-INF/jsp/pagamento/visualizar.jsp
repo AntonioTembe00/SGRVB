@@ -34,20 +34,21 @@
 
     <body id="page-top">
 
-       <!-- Page Wrapper -->
+        <!-- Page Wrapper -->
+        <!-- Page Wrapper -->
         <div id="wrapper">
 
             <!-- Sidebar -->
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value='/inicial/inicia'/>">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value='/inicial/inicialvenda'/>">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                   <c:forEach items="${lista}" var="uso">
+                    <c:forEach items="${lista}" var="uso">
                         <div class="sidebar-brand-text mx-3">${uso.nome}<sup></sup></div>
-                    </c:forEach>
+                            </c:forEach>
                 </a>
 
                 <!-- Divider -->
@@ -55,7 +56,7 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="<c:url value='/inicial/inicia'/>">
+                    <a class="nav-link" href="<c:url value='/inicial/inicialvenda'/>">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Painel de Controle</span></a>
                 </li>
@@ -77,15 +78,8 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">registar:</h6>
-                            <a class="collapse-item" href="<c:url value='/grupo/create'/>">Grupo</a>
-                            <a class="collapse-item" href="<c:url value='/especialidade/create'/>">Especialidade</a>
-                            <a class="collapse-item" href="<c:url value='/funcionario/create'/>">Funcionario</a>
-                            <a class="collapse-item" href="<c:url value='/categoria/create'/>" >Categorias de Jogo</a>
-                            <a class="collapse-item"  href="<c:url value='/mensagem/create'/>">Mensagem</a>
-                            <a class="collapse-item" href="<c:url value='/jogo/create'/>">Jogo</a>
-                            <a class="collapse-item" href="<c:url value='/evento/create'/>">Evento do Jogo</a>
-                            <a class="collapse-item" href="<c:url value='/tipopagamento/create'/>">Tipo de Pagamento</a>
-                            <a class="collapse-item" href="<c:url value='/faltas/create'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/venda/create'/>" >Vender</a>
+                            <a class="collapse-item"  href="<c:url value='/mensagem/createvenda'/>">Mensagem</a>
                         </div>
                     </div>
                 </li>
@@ -99,16 +93,9 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Visualizar:</h6>
-                              <a class="collapse-item" href="<c:url value='/grupo/visualizar'/>">Grupo</a>
-                            <a class="collapse-item" href="<c:url value='/especialidade/visualizar'/>">Especialidade</a>
-                            <a class="collapse-item" href="<c:url value='/funcionario/visualizar'/>">Funcionario</a>
-                            <a class="collapse-item" href="<c:url value='/categoria/visualizar'/>" >Categorias de Jogo</a>
-                            <a class="collapse-item"  href="<c:url value='/mensagem/visualizar'/>">Mensagem</a>
-                            <a class="collapse-item" href="<c:url value='/jogo/visualizar'/>">Jogo</a>
-                            <a class="collapse-item" href="<c:url value='/evento/visualizar'/>">Evento do Jogo</a>
-                            <a class="collapse-item" href="<c:url value='/tipopagamento/visualizar'/>">Tipo de Pagamento</a>
+                            <a class="collapse-item" href="<c:url value='/venda/visualizar'/>" >Vendas</a>
+                            <a class="collapse-item"  href="<c:url value='/mensagem/visualizarvenda'/>">Mensagem</a>
                             <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
-                            <a class="collapse-item" href="<c:url value='/faltas/visualizar'/>">Faltas</a>
                         </div>
                     </div>
                 </li>
@@ -116,22 +103,7 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Estatisticas
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link" href="<c:url value='/grafico/grafico'/>">
-                        <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Gráficos</span></a>
-                </li>
 
-                <!-- Nav Item - Tables -->
-<!--                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Relatórios</span></a>
-                </li>-->
 
                 <hr class="sidebar-divider">
                 <!-- Nav Item - Charts -->
@@ -196,8 +168,10 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrbc Tpcazt</span>
-                                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                   <c:forEach items="${lista}" var="uso">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 medium">${uso.nome}</span>
+                                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/user_avatar.png" alt="">
+                                    </c:forEach>
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -229,22 +203,22 @@
                         <br><br>  
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
-                             <c:if test="${succeedMessage != null }">
-                                        <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                            ${succeedMessage}
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${error != null }">
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                            ${error}
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    </c:if>
+                            <c:if test="${succeedMessage != null }">
+                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                    ${succeedMessage}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </c:if>
+                            <c:if test="${error != null }">
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    ${error}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </c:if>
                             <div class="card-header py-3">
                             </div>
                             <div class="card-body">
@@ -255,36 +229,36 @@
                                                 <th>Reserva</th>
                                                 <th>Tipo Pagamento</th>
                                                 <th>Estado Pagamento</th>
-                                                
+
                                                 <th>Acção</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <<th>Reserva</th>
+                                                <th>Reserva</th>
                                                 <th>Tipo Pagamento</th>
                                                 <th>Estado Pagamento</th>
-                                                
+
                                                 <th>Acção</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                        <c:forEach items="${list}" var="entity">
-                                            <tr>
-                                                <td>${entity.reserva}</td>
-                                                <td>${entity.tipopagamento}</td>
-                                                <td>${entity.estadopagamento}</td>
-                                     
-                                                <td>
-                                                    <a style="margin-left: 23%" href="pagamento?id=${entity.id}" class="btn btn-warning btn-circle btn-sm" data-toggle="tooltip" data-placement="left" title="Confirmar">
-                                                        <i class="fas fa-exclamation-triangle"></i>
-                                                    </a>
-                                                    <a style="margin-left: 20%" href="cancel?id=${entity.id}" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" title="Cancelar" data-placement="top">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
+                                            <c:forEach items="${list}" var="entity">
+                                                <tr>
+                                                    <td>${entity.reserva}</td>
+                                                    <td>${entity.tipopagamento}</td>
+                                                    <td>${entity.estadopagamento}</td>
+
+                                                    <td>
+                                                        <a style="margin-left: 23%" href="pagamento?id=${entity.id}" class="btn-circle" data-toggle="tooltip" data-placement="left" title="Confirmar">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/co.png" alt="">
+                                                        </a>
+<!--                                                        <a style="margin-left: 20%" href="cancel?id=${entity.id}" class="btn-circle" data-toggle="tooltip" title="Cancelar" data-placement="top">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/.png" alt="">
+                                                        </a>-->
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
@@ -319,7 +293,7 @@
         </a>
 
         <!-- Logout Modal-->
-      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">

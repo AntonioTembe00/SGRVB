@@ -25,6 +25,7 @@ public class LoginController {
     private Result result;
     @Inject
     private FuncionarioDAO dao;
+    @Inject
     private ClienteDAO clidao;
     @Inject
     LoginController loginController;
@@ -91,9 +92,7 @@ public class LoginController {
         }
 
         if (contador != 0) {
-            sessao();
             result.redirectTo(InicialController.class).paginacliente();
-
         } else {
             result.include("error", "Senha ou email errado");
             result.redirectTo(LoginController.class).logincliente();

@@ -86,6 +86,7 @@
                             <a class="collapse-item" href="<c:url value='/evento/create'/>">Evento do Jogo</a>
                             <a class="collapse-item" href="<c:url value='/tipopagamento/create'/>">Tipo de Pagamento</a>
                             <a class="collapse-item" href="<c:url value='/faltas/create'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/ferias/create'/>">Férias</a>
                         </div>
                     </div>
                 </li>
@@ -107,8 +108,9 @@
                             <a class="collapse-item" href="<c:url value='/jogo/visualizar'/>">Jogo</a>
                             <a class="collapse-item" href="<c:url value='/evento/visualizar'/>">Evento do Jogo</a>
                             <a class="collapse-item" href="<c:url value='/tipopagamento/visualizar'/>">Tipo de Pagamento</a>
-                            <a class="collapse-item" href="<c:url value='/pagamento/visualizar'/>">Confirmação Pagamento</a>
                             <a class="collapse-item" href="<c:url value='/faltas/visualizar'/>">Faltas</a>
+                            <a class="collapse-item" href="<c:url value='/ferias/visualizar'/>">Férias</a>
+                            <a class="collapse-item" href="<c:url value='/venda/visualizaradmin'/>" >Vendas</a>
                         </div>
                     </div>
                 </li>
@@ -196,8 +198,10 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 medium">Sgrbc Tpcazt</span>
-                                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                    <c:forEach items="${lista}" var="uso">
+                                        <span class="mr-2 d-none d-lg-inline text-gray-600 medium">${uso.nome}</span>
+                                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/assets/img/user_avatar.png" alt="">
+                                    </c:forEach>
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -270,11 +274,11 @@
                                                     <td>${entity.nome}</td>
                                                     <td>${entity.descricao}</td>
                                                     <td>
-                                                        <a style="margin-left: 23%" href="edita?id=${entity.id}" class="btn btn-warning btn-circle btn-sm" data-toggle="tooltip" data-placement="left" title="actuaizar">
-                                                            <i class="fas fa-exclamation-triangle"></i>
+                                                        <a style="margin-left: 23%" href="edita?id=${entity.id}" class="btn-circle" data-toggle="tooltip" data-placement="left" title="actuaizar">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/ed.png" alt="">
                                                         </a>
-                                                        <a style="margin-left: 20%" href="remove?id=${entity.id}" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" title="apagar" data-placement="top">
-                                                            <i class="fas fa-trash"></i>
+                                                        <a style="margin-left: 20%" href="remove?id=${entity.id}" class="btn-circle" data-toggle="tooltip" title="apagar" data-placement="top">
+                                                             <img class="img-responsive" src="${pageContext.request.contextPath}/resources/assets/img/portfolio/ex.png" alt="">
                                                         </a>
                                                     </td>
                                                 </tr>

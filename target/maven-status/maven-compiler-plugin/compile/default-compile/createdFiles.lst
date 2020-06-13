@@ -26,6 +26,7 @@ controller\GrupoController.class
 controller\VendaController.class
 model\Cliente_.class
 model\Reserva_.class
+model\UploadRepository.class
 controller\GraficoController.class
 controller\TipopagamentoController.class
 model\Pagamento_.class

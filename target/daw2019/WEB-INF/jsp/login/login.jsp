@@ -54,7 +54,7 @@
                             <!-- Nested Row within Card Body -->
                             <div class="row">
                                 <div class="col-lg-6 d-none d-lg-block">
-                                    <img src="${pageContext.request.contextPath}/resources/assets/img/pep.jpg" alt="">
+                                    <img src="${pageContext.request.contextPath}/resources/assets/img/fut0.jpg" alt="">
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="p-5">

@@ -95,7 +95,7 @@ public class Reserva implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente: " + cliente + ", evento: " + evento.getJogo().getNome() + ", quantidade: " + quantidade+", Valor: "+quantidade*evento.getValor();
+        return "Cliente: " + cliente + ", evento: " + evento.getJogo().getNome() + ", quantidade: " + quantidade;
     }
 
     

@@ -85,6 +85,13 @@ public class VendaController {
         result.include("list", dao.findAllUsers1(loginController.valor));
         result.include("lista", usodao.findAllUsers1(LoginController.valor));
     }
+    
+    @Path("/visualizaradmin")
+    public void visualizaradmin() {
+        loginController.sessao();
+        result.include("list", dao.findAllUsers());
+        result.include("lista", usodao.findAllUsers1(LoginController.valor));
+    }
 
     @Path("/edita1")
     public void edita1(Venda entity, Integer id, Integer quantidade) {

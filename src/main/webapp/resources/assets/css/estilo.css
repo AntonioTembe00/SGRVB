@@ -6,3 +6,9 @@
 .container button{
 	margin-left:18%;
 }
+.myimage{
+    margin: auto;
+    margin-top: 10%;
+    margin-left: 35%;
+    display: block;
+}
