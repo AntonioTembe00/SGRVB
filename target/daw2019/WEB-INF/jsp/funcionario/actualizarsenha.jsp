@@ -146,7 +146,7 @@
                                         <form action="<c:url value='/funcionario/trocar'/>" class="needs-validation" novalidate>
                                             <div class="form-group">
                                                 <label for="uname"><b>Senha Antiga:</b></label>
-                                                <input type="text" class="form-control" id="nome" name="senhaantiga"placeholder="Introduza o senha antiga" required>
+                                                <input type="text" class="form-control" id="nome" name="senhaantiga"placeholder="Introduza a senha antiga" required>
                                                 <!-- <div class="valid-feedback">Valido.</div> -->
                                                 <div class="invalid-feedback">Obrigatório preencher.</div>
                                             </div>
