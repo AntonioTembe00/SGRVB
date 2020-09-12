@@ -14,8 +14,11 @@ import model.Reserva;
 import model.Cliente;
 import javax.inject.Inject;
 import javax.servlet.jsp.tagext.ValidationMessage;
+import javax.swing.JOptionPane;
 import model.Pagamento;
 import model.Tipopagamento;
+import mail.Mensagem;
+import mail.EmailController;
 
 /**
  *
@@ -80,6 +83,18 @@ public class ReservaController {
             pg.setEstado(1);
             pg.setEstadopagamento("Pedente");
             pdao.create(pg);
+            
+            String nomeRemetente ="SGRBJF";
+            String assunto="Reserva de Bilhete(s)";
+            String mensagem="Olá " + uso.getNome()+", o ID da Reserva do jogo " + eve.getJogo().getNome() + " é " + entity.getId() 
+                    +", referente a reserva de "+entity.getQuantidade()+" bilhete(s), o valor total a pagar é "+
+                    entity.getQuantidade()*eve.getValor()+ " MZN. \nPor Favor, não apague a mensagem antes de "
+                    + "efectuar o pagamento.";
+            String destinatario = uso.getEmail();
+            
+            EmailController em = new EmailController();
+            em.envioSimples(nomeRemetente, assunto, mensagem, destinatario);
+            
 
             result.redirectTo(InicialController.class).paginacliente();
         } catch (Exception e) {
