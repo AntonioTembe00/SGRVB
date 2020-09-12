@@ -74,7 +74,12 @@
             <version>5.4.3.Final</version>
             <scope>provided</scope>
         </dependency>
-        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>5.1.10.RELEASE</version>
+            <type>jar</type>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -120,6 +125,18 @@
             <artifactId>reflections</artifactId>
             <version>0.9.11</version>
         </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
+        
+        <dependency>
+		<groupId>br.com.caelum.vraptor</groupId>
+		<artifactId>vraptor-simplemail</artifactId>
+		<version>1.0.3</version>
+		<scope>compile</scope>
+	</dependency>
         
     </dependencies>
     <repositories>
